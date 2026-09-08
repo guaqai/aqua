@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
-import { MessageSquare, X, Send, Bot, User, Sparkles, Phone } from 'lucide-react';
+import { X, Send, User, Feather } from 'lucide-react';
 
 interface Message {
   role: 'assistant' | 'user';
@@ -15,7 +15,7 @@ export default function AIChatDrawer() {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: 'assistant',
-      text: 'Namaskara! I am AquaBot, the AI concierge for Aqua Ventures Coorg & Just Meen. How can I help you today with our fresh spring-water fish, authentic Coorg preserves, cold-chain delivery, or farm tours?'
+      text: 'Namaskara. I am the Aqua Concierge. How may I assist you today regarding our estate, fresh catch, preserves, or farm tours?'
     }
   ]);
 
@@ -28,11 +28,10 @@ export default function AIChatDrawer() {
   }, [messages, isOpen]);
 
   const quickPrompts = [
-    'Is your Tilapia muddy or smelly?',
-    'How does delivery to Bangalore work?',
-    'How do I use Kachampuli?',
-    'Farm Tour details & timings',
-    'I want commercial fish fingerlings'
+    'Bangalore Delivery',
+    'What is Kachampuli?',
+    'Farm Tour Timings',
+    'Bulk Seafood Supply'
   ];
 
   const handleSend = async (userText: string) => {
@@ -56,12 +55,12 @@ export default function AIChatDrawer() {
       const data = await res.json();
       setMessages(prev => [
         ...prev,
-        { role: 'assistant', text: data.reply || 'Sorry, I am having trouble connecting right now. Please reach out to founder Shyam on WhatsApp at +91 81232 88564.' }
+        { role: 'assistant', text: data.reply || 'I am currently unable to process your request. Please contact our founder on WhatsApp at +91 81232 88564.' }
       ]);
     } catch (err) {
       setMessages(prev => [
         ...prev,
-        { role: 'assistant', text: 'Network glitch. You can directly chat with founder Shyam Aiyappa on WhatsApp: +91 81232 88564.' }
+        { role: 'assistant', text: 'Connection lost. Please reach out to Shyam directly via WhatsApp at +91 81232 88564.' }
       ]);
     } finally {
       setLoading(false);
@@ -74,87 +73,73 @@ export default function AIChatDrawer() {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 z-40 p-4 rounded-full bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-black font-bold shadow-2xl shadow-emerald-950/80 border border-emerald-300/40 flex items-center gap-2.5 transition-all duration-300 hover:scale-105 cursor-pointer glow-emerald"
-          aria-label="Open AI Concierge"
+          className="fixed bottom-6 right-6 z-40 p-4 rounded-full bg-misty-ivory text-coorg-green shadow-xl shadow-coorg-green/20 border border-ink-charcoal/10 flex items-center gap-3 transition-transform duration-300 hover:scale-105 hover:bg-warm-gold cursor-pointer"
+          aria-label="Open Concierge"
         >
-          <Bot className="w-5 h-5 text-black" />
-          <span className="hidden sm:inline text-xs font-extrabold tracking-wide uppercase">Ask AquaBot</span>
-          <span className="w-2.5 h-2.5 rounded-full bg-black animate-ping" />
+          <Feather className="w-5 h-5" strokeWidth={1.5} />
+          <span className="hidden sm:inline text-xs font-semibold tracking-widest uppercase">Concierge</span>
         </button>
       )}
 
       {/* Slide-in Chat Drawer */}
       {isOpen && (
-        <div className="fixed bottom-6 right-6 z-50 w-full max-w-sm sm:max-w-md h-[550px] bg-[#0c1410] border border-emerald-500/40 rounded-3xl shadow-2xl flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-5 duration-200">
+        <div className="fixed bottom-6 right-6 z-50 w-full max-w-sm h-[550px] bg-misty-ivory border border-ink-charcoal/10 shadow-2xl flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-5 duration-200 rounded-sm">
           
           {/* Header */}
-          <div className="p-4 bg-zinc-950 border-b border-zinc-800 flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-700 flex items-center justify-center text-black font-bold">
-                <Bot className="w-5 h-5" />
-              </div>
-              <div>
-                <h3 className="text-sm font-bold text-white flex items-center gap-1.5">
-                  AquaBot AI Concierge
-                  <span className="w-2 h-2 rounded-full bg-emerald-400" />
-                </h3>
-                <span className="text-[11px] text-zinc-400">Aqua Ventures · Siddapur, Coorg</span>
-              </div>
+          <div className="p-5 bg-coorg-green border-b border-coorg-green-light flex items-center justify-between">
+            <div>
+              <h3 className="font-serif text-xl text-misty-ivory mb-0.5">
+                The Concierge
+              </h3>
+              <span className="text-[9px] uppercase tracking-widest text-warm-gold">Aqua Ventures · Coorg</span>
             </div>
 
             <button
               onClick={() => setIsOpen(false)}
-              className="p-1.5 rounded-lg text-zinc-400 hover:text-white bg-zinc-900 border border-zinc-800"
+              className="p-2 text-misty-ivory/60 hover:text-misty-ivory transition-colors cursor-pointer"
             >
-              <X className="w-4 h-4" />
+              <X className="w-5 h-5" strokeWidth={1.5} />
             </button>
           </div>
 
           {/* Chat Messages */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-3 text-xs">
+          <div className="flex-1 overflow-y-auto p-5 space-y-5 bg-misty-ivory/50">
             {messages.map((m, i) => (
               <div
                 key={i}
-                className={`flex gap-2.5 ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}
+                className={`flex flex-col ${m.role === 'user' ? 'items-end' : 'items-start'}`}
               >
-                {m.role === 'assistant' && (
-                  <div className="w-6 h-6 rounded-md bg-emerald-900 text-emerald-300 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Bot className="w-3.5 h-3.5" />
-                  </div>
-                )}
                 <div
-                  className={`p-3 rounded-2xl max-w-[82%] leading-relaxed ${
+                  className={`p-4 max-w-[85%] text-sm font-light leading-relaxed ${
                     m.role === 'user'
-                      ? 'bg-emerald-500 text-black font-medium rounded-tr-none'
-                      : 'bg-zinc-900/90 text-zinc-200 border border-zinc-800 rounded-tl-none whitespace-pre-line'
+                      ? 'bg-earth-clay text-misty-ivory rounded-tl-xl rounded-bl-xl rounded-tr-xl'
+                      : 'bg-white text-ink-charcoal border border-ink-charcoal/5 rounded-tr-xl rounded-br-xl rounded-tl-xl shadow-sm whitespace-pre-line'
                   }`}
                 >
                   {m.text}
                 </div>
-                {m.role === 'user' && (
-                  <div className="w-6 h-6 rounded-md bg-zinc-800 text-zinc-300 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <User className="w-3.5 h-3.5" />
-                  </div>
-                )}
+                <span className={`text-[9px] uppercase tracking-widest text-ink-charcoal/40 mt-1 ${m.role === 'user' ? 'mr-1' : 'ml-1'}`}>
+                  {m.role === 'user' ? 'You' : 'Concierge'}
+                </span>
               </div>
             ))}
 
             {loading && (
-              <div className="flex items-center gap-2 text-zinc-400 text-[11px]">
-                <Bot className="w-4 h-4 text-emerald-400 animate-spin" />
-                <span>AquaBot is typing...</span>
+              <div className="flex items-center gap-2 text-ink-charcoal/50 text-[10px] uppercase tracking-widest">
+                <span className="w-1.5 h-1.5 bg-earth-clay rounded-full animate-bounce" />
+                <span>Composing...</span>
               </div>
             )}
             <div ref={endRef} />
           </div>
 
           {/* Quick Prompts */}
-          <div className="px-3 py-2 bg-zinc-950/60 border-t border-zinc-900 overflow-x-auto flex gap-1.5 no-scrollbar">
+          <div className="px-4 py-3 bg-white border-t border-ink-charcoal/5 overflow-x-auto flex gap-2 no-scrollbar">
             {quickPrompts.map((q, idx) => (
               <button
                 key={idx}
                 onClick={() => handleSend(q)}
-                className="px-2.5 py-1 rounded-full text-[11px] bg-zinc-900 hover:bg-emerald-950 text-zinc-300 hover:text-emerald-300 border border-zinc-800 whitespace-nowrap cursor-pointer transition-colors"
+                className="px-3 py-1.5 text-[10px] uppercase tracking-widest font-medium bg-misty-ivory text-ink-charcoal hover:bg-earth-clay hover:text-misty-ivory border border-ink-charcoal/10 whitespace-nowrap cursor-pointer transition-colors rounded-sm"
               >
                 {q}
               </button>
@@ -162,32 +147,29 @@ export default function AIChatDrawer() {
           </div>
 
           {/* Input Area */}
-          <div className="p-3 bg-zinc-950 border-t border-zinc-800">
+          <div className="p-4 bg-white border-t border-ink-charcoal/5">
             <form
               onSubmit={(e) => {
                 e.preventDefault();
                 handleSend(input);
               }}
-              className="flex items-center gap-2"
+              className="flex items-center gap-3"
             >
               <input
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="Ask about fish, delivery, marmalade, tours..."
-                className="flex-1 px-3.5 py-2.5 rounded-xl bg-zinc-900 text-white text-xs border border-zinc-700 focus:border-emerald-500 focus:outline-none"
+                placeholder="Inquire here..."
+                className="flex-1 bg-transparent border-b border-ink-charcoal/20 pb-2 text-sm focus:outline-none focus:border-earth-clay transition-colors font-light"
               />
               <button
                 type="submit"
                 disabled={loading || !input.trim()}
-                className="p-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-bold disabled:opacity-40 cursor-pointer"
+                className="p-2 text-earth-clay disabled:opacity-30 hover:text-coorg-green transition-colors cursor-pointer"
               >
-                <Send className="w-4 h-4" />
+                <Send className="w-5 h-5" strokeWidth={1.5} />
               </button>
             </form>
-            <div className="mt-2 text-center text-[10px] text-zinc-500">
-              Founder Support: <a href="https://wa.me/918123288564" target="_blank" className="text-emerald-400 hover:underline">+91 81232 88564</a>
-            </div>
           </div>
 
         </div>

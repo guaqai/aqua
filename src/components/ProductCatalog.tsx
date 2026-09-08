@@ -3,20 +3,20 @@
 import React, { useState } from 'react';
 import { PRODUCTS, Product } from '@/data/products';
 import { useCart } from '@/lib/cart-context';
-import { ShoppingBag, MessageSquare, Info, Check, Sparkles, X } from 'lucide-react';
+import { ShoppingBag, Info, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function ProductCatalog() {
   const { addToCart } = useCart();
   const [activeTab, setActiveTab] = useState<string>('all');
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-  const [addedId, setAddedId] = useState<string | null>(null);
 
   const categories = [
     { id: 'all', label: 'All Offerings' },
     { id: 'just-meen', label: 'Just Meen Seafood' },
     { id: 'just-homemade', label: 'Preserves & Pantry' },
-    { id: 'just-fresh', label: 'Hydroponic Greens' },
-    { id: 'vinessence', label: 'Vinessence Superfoods' },
+    { id: 'just-fresh', label: 'Hydroponics' },
+    { id: 'vinessence', label: 'Vinessence' },
     { id: 'commercial', label: 'Agri & Aquaculture' },
   ];
 
@@ -24,46 +24,35 @@ export default function ProductCatalog() {
     ? PRODUCTS
     : PRODUCTS.filter(p => p.category === activeTab);
 
-  const handleAdd = (product: Product) => {
-    addToCart(product);
-    setAddedId(product.id);
-    setTimeout(() => setAddedId(null), 1500);
-  };
-
   return (
-    <section id="catalog" className="py-20 bg-[#080d0b]">
+    <section id="catalog" className="py-24 bg-misty-ivory">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-          <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold bg-emerald-950 text-emerald-400 border border-emerald-500/30 mb-3">
-              <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-              Direct from Guyya Village, Coorg
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-              Farm-Fresh & Artisan Preserves Catalog
-            </h2>
-            <p className="text-sm sm:text-base text-zinc-400 mt-2 max-w-2xl">
-              Harvested clean from spring-fed waters, handcrafted in small batches, or grown soilless. Zero chemicals, zero compromise on authentic Kodava taste.
-            </p>
-          </div>
-
-          <div className="flex items-center gap-2 text-xs font-medium text-zinc-400 bg-zinc-900/80 px-4 py-2 rounded-xl border border-zinc-800 self-start md:self-auto">
-            <span>Showing <strong className="text-white">{filtered.length}</strong> items</span>
-            <span>·</span>
-            <span className="text-emerald-400 font-semibold">Sub-Zero Cold Chain Ready</span>
-          </div>
+        {/* Section Header */}
+        <div className="flex flex-col items-center text-center mb-16">
+          <span className="text-earth-clay tracking-[0.2em] uppercase text-[10px] font-semibold mb-4 block">
+            From Our Estate to Your Table
+          </span>
+          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-coorg-green mb-6 leading-tight">
+            The Artisan Catalog
+          </h2>
+          <div className="w-16 h-[1px] bg-warm-gold mb-6"></div>
+          <p className="text-ink-charcoal/80 max-w-2xl text-lg font-light leading-relaxed">
+            Harvested clean from spring-fed waters and handcrafted in small batches. 
+            Zero chemicals, zero compromise on authentic Kodava taste.
+          </p>
         </div>
 
-        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 no-scrollbar">
+        {/* Tab Navigation */}
+        <div className="flex flex-wrap items-center justify-center gap-6 mb-16">
           {categories.map(cat => (
             <button
               key={cat.id}
               onClick={() => setActiveTab(cat.id)}
-              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition-all duration-200 cursor-pointer ${
+              className={`text-xs tracking-widest uppercase font-semibold transition-all duration-300 pb-1 border-b-2 ${
                 activeTab === cat.id
-                  ? 'bg-emerald-500 text-black shadow-lg shadow-emerald-900/40'
-                  : 'bg-zinc-900/90 text-zinc-300 hover:bg-zinc-800 hover:text-white border border-zinc-800'
+                  ? 'border-earth-clay text-earth-clay'
+                  : 'border-transparent text-ink-charcoal/50 hover:text-ink-charcoal'
               }`}
             >
               {cat.label}
@@ -71,190 +60,143 @@ export default function ProductCatalog() {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {filtered.map(product => (
-            <div
-              key={product.id}
-              className="glass-card rounded-2xl overflow-hidden flex flex-col justify-between group"
-            >
-              <div className="relative p-5 bg-gradient-to-b from-zinc-900/90 to-transparent flex items-center justify-center min-h-[210px]">
-                {product.badge && (
-                  <span className="absolute top-3 left-3 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-500 text-black uppercase tracking-wider shadow">
-                    {product.badge}
-                  </span>
-                )}
-                
-                <button
-                  onClick={() => setSelectedProduct(product)}
-                  className="absolute top-3 right-3 p-1.5 rounded-lg bg-zinc-900/80 hover:bg-zinc-800 text-zinc-400 hover:text-white transition-colors cursor-pointer"
-                  title="View Specs"
-                >
-                  <Info className="w-4 h-4" />
-                </button>
-
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-40 h-40 object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-
-              <div className="p-5 flex-grow flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center justify-between text-[11px] text-emerald-400 font-semibold uppercase tracking-wider mb-1">
-                    <span>{product.categoryLabel}</span>
-                    <span className="text-zinc-400 normal-case font-normal">{product.unit}</span>
+        {/* Editorial Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-16 gap-x-12">
+          <AnimatePresence mode="popLayout">
+            {filtered.map((product, idx) => (
+              <motion.div
+                layout
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.5, delay: (idx % 3) * 0.1 }}
+                key={product.id}
+                className="group flex flex-col"
+              >
+                {/* Image Area */}
+                <div className="relative aspect-square mb-6 overflow-hidden bg-coorg-green/5 rounded-sm">
+                  {product.badge && (
+                    <div className="absolute top-4 left-4 z-10 px-3 py-1 bg-misty-ivory text-earth-clay text-[9px] uppercase tracking-widest font-bold border border-earth-clay/20 shadow-sm">
+                      {product.badge}
+                    </div>
+                  )}
+                  
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="absolute inset-0 w-full h-full object-contain p-8 mix-blend-multiply transition-transform duration-700 group-hover:scale-105"
+                  />
+                  
+                  {/* Hover Overlay Actions */}
+                  <div className="absolute inset-0 bg-misty-ivory/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-4 backdrop-blur-[2px]">
+                    <button
+                      onClick={() => addToCart(product)}
+                      className="px-6 py-3 bg-coorg-green text-misty-ivory text-xs uppercase tracking-widest font-semibold hover:bg-earth-clay transition-colors flex items-center gap-2 cursor-pointer"
+                    >
+                      <ShoppingBag className="w-4 h-4" />
+                      Add to Cart
+                    </button>
+                    <button
+                      onClick={() => setSelectedProduct(product)}
+                      className="text-coorg-green text-[10px] uppercase tracking-widest font-bold border-b border-coorg-green pb-0.5 hover:text-earth-clay hover:border-earth-clay transition-colors cursor-pointer"
+                    >
+                      View Details
+                    </button>
                   </div>
+                </div>
 
-                  <h3 className="text-base font-bold text-white group-hover:text-emerald-300 transition-colors">
+                {/* Product Details */}
+                <div className="text-center px-4">
+                  <div className="text-[10px] uppercase tracking-widest text-earth-clay font-semibold mb-2">
+                    {product.categoryLabel}
+                  </div>
+                  <h3 className="font-serif text-2xl text-coorg-green mb-2 group-hover:text-earth-clay transition-colors cursor-pointer" onClick={() => setSelectedProduct(product)}>
                     {product.name}
                   </h3>
-
-                  <p className="text-xs text-zinc-400 mt-2 line-clamp-2 leading-relaxed">
-                    {product.tagline}
-                  </p>
-                </div>
-
-                <div className="mt-5 pt-4 border-t border-zinc-800/80">
-                  <div className="flex items-baseline justify-between mb-3">
-                    <span className="text-xl font-extrabold text-white">
-                      ₹{product.price.toLocaleString('en-IN')}
-                    </span>
-                    <span className="text-[11px] text-zinc-400">
-                      {product.inStock ? 'In Stock' : 'Out of Stock'}
-                    </span>
+                  <div className="text-sm text-ink-charcoal/70 font-light mb-3">
+                    {product.unit}
                   </div>
-
-                  <div className="grid grid-cols-2 gap-2">
-                    <button
-                      onClick={() => handleAdd(product)}
-                      className={`py-2 px-3 rounded-xl text-xs font-bold transition-all duration-200 flex items-center justify-center gap-1.5 cursor-pointer ${
-                        addedId === product.id
-                          ? 'bg-emerald-400 text-black'
-                          : 'bg-emerald-500 hover:bg-emerald-400 text-black shadow-md'
-                      }`}
-                    >
-                      {addedId === product.id ? (
-                        <>
-                          <Check className="w-3.5 h-3.5" />
-                          <span>Added!</span>
-                        </>
-                      ) : (
-                        <>
-                          <ShoppingBag className="w-3.5 h-3.5" />
-                          <span>Add to Cart</span>
-                        </>
-                      )}
-                    </button>
-
-                    <a
-                      href={`https://wa.me/918123288564?text=Hi!%20I%20want%20to%20order%20${encodeURIComponent(product.name)}%20(₹${product.price})%20from%20Aqua%20Ventures.`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="py-2 px-3 rounded-xl text-xs font-semibold bg-[#25D366]/15 hover:bg-[#25D366]/25 text-[#25D366] border border-[#25D366]/30 transition-colors flex items-center justify-center gap-1"
-                      title="Order instantly on WhatsApp"
-                    >
-                      <MessageSquare className="w-3.5 h-3.5" />
-                      <span>WhatsApp</span>
-                    </a>
+                  <div className="text-lg font-medium text-ink-charcoal">
+                    ₹{product.price.toLocaleString('en-IN')}
                   </div>
                 </div>
-
-              </div>
-            </div>
-          ))}
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </div>
-
       </div>
 
-      {selectedProduct && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200">
-          <div className="glass-card max-w-lg w-full rounded-3xl p-6 relative border border-emerald-500/40">
-            <button
-              onClick={() => setSelectedProduct(null)}
-              className="absolute top-4 right-4 p-2 rounded-full bg-zinc-800 text-zinc-300 hover:text-white cursor-pointer"
+      {/* Product Modal (Minimalist) */}
+      <AnimatePresence>
+        {selectedProduct && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-ink-charcoal/80 backdrop-blur-sm"
+          >
+            <motion.div 
+              initial={{ scale: 0.95, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.95, y: 20 }}
+              className="bg-misty-ivory max-w-2xl w-full rounded-sm overflow-hidden shadow-2xl flex flex-col md:flex-row relative"
             >
-              <X className="w-4 h-4" />
-            </button>
-
-            <div className="flex items-center gap-4 mb-4">
-              <img
-                src={selectedProduct.image}
-                alt={selectedProduct.name}
-                className="w-20 h-20 object-contain rounded-xl bg-zinc-900 p-2"
-              />
-              <div>
-                <span className="text-xs text-emerald-400 font-semibold uppercase">{selectedProduct.categoryLabel}</span>
-                <h3 className="text-lg font-bold text-white">{selectedProduct.name}</h3>
-                <div className="text-lg font-extrabold text-white mt-0.5">
-                  ₹{selectedProduct.price} <span className="text-xs text-zinc-400 font-normal">/ {selectedProduct.unit}</span>
-                </div>
-              </div>
-            </div>
-
-            <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed mb-4">
-              {selectedProduct.description}
-            </p>
-
-            <div className="bg-zinc-900/90 rounded-xl p-3.5 mb-4 text-xs space-y-1.5 border border-zinc-800">
-              <div className="flex justify-between">
-                <span className="text-zinc-400">Packaging:</span>
-                <span className="text-zinc-200 font-medium">{selectedProduct.specs.packaging}</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-zinc-400">Shelf Life:</span>
-                <span className="text-zinc-200 font-medium">{selectedProduct.specs.shelfLife}</span>
-              </div>
-              {selectedProduct.specs.prepTime && (
-                <div className="flex justify-between">
-                  <span className="text-zinc-400">Preparation:</span>
-                  <span className="text-zinc-200 font-medium">{selectedProduct.specs.prepTime}</span>
-                </div>
-              )}
-              <div className="flex justify-between">
-                <span className="text-zinc-400">Origin:</span>
-                <span className="text-zinc-200 font-medium">{selectedProduct.specs.origin}</span>
-              </div>
-            </div>
-
-            <div className="mb-6 space-y-1">
-              <span className="text-[11px] font-semibold text-emerald-400 uppercase tracking-wider block mb-1">Quality Highlights:</span>
-              <div className="flex flex-wrap gap-1.5">
-                {selectedProduct.highlights.map((h, i) => (
-                  <span key={i} className="text-[11px] px-2.5 py-1 rounded-md bg-emerald-950 text-emerald-300 border border-emerald-500/20">
-                    ✓ {h}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div className="grid grid-cols-2 gap-3">
               <button
-                onClick={() => {
-                  handleAdd(selectedProduct);
-                  setSelectedProduct(null);
-                }}
-                className="py-2.5 rounded-xl text-xs font-bold bg-emerald-500 hover:bg-emerald-400 text-black flex items-center justify-center gap-1.5 cursor-pointer"
+                onClick={() => setSelectedProduct(null)}
+                className="absolute top-4 right-4 z-10 p-2 text-ink-charcoal/60 hover:text-ink-charcoal transition-colors cursor-pointer"
               >
-                <ShoppingBag className="w-4 h-4" />
-                Add to Cart (₹{selectedProduct.price})
+                <X className="w-5 h-5" strokeWidth={1.5} />
               </button>
 
-              <a
-                href={`https://wa.me/918123288564?text=Hi!%20I%20have%20a%20question%20about%20${encodeURIComponent(selectedProduct.name)}.`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="py-2.5 rounded-xl text-xs font-semibold bg-[#25D366]/20 text-[#25D366] border border-[#25D366]/40 flex items-center justify-center gap-1.5"
-              >
-                <MessageSquare className="w-4 h-4" />
-                Ask on WhatsApp
-              </a>
-            </div>
+              <div className="md:w-1/2 bg-coorg-green/5 p-8 flex items-center justify-center relative">
+                <img
+                  src={selectedProduct.image}
+                  alt={selectedProduct.name}
+                  className="w-full h-auto object-contain mix-blend-multiply drop-shadow-xl"
+                />
+              </div>
+              
+              <div className="md:w-1/2 p-8 md:p-10 flex flex-col justify-center">
+                <span className="text-[10px] uppercase tracking-widest text-earth-clay font-bold mb-2 block">
+                  {selectedProduct.categoryLabel}
+                </span>
+                <h3 className="font-serif text-3xl text-coorg-green mb-2 leading-tight">
+                  {selectedProduct.name}
+                </h3>
+                <div className="text-xl font-medium text-ink-charcoal mb-6">
+                  ₹{selectedProduct.price} <span className="text-sm font-light text-ink-charcoal/60">/ {selectedProduct.unit}</span>
+                </div>
+                
+                <p className="text-sm text-ink-charcoal/80 font-light leading-relaxed mb-8">
+                  {selectedProduct.description}
+                </p>
 
-          </div>
-        </div>
-      )}
+                <div className="space-y-4 mb-8">
+                  <div className="flex justify-between border-b border-ink-charcoal/10 pb-2">
+                    <span className="text-xs uppercase tracking-widest text-ink-charcoal/60">Origin</span>
+                    <span className="text-xs font-medium text-ink-charcoal text-right pl-4">{selectedProduct.specs.origin}</span>
+                  </div>
+                  <div className="flex justify-between border-b border-ink-charcoal/10 pb-2">
+                    <span className="text-xs uppercase tracking-widest text-ink-charcoal/60">Shelf Life</span>
+                    <span className="text-xs font-medium text-ink-charcoal text-right pl-4">{selectedProduct.specs.shelfLife}</span>
+                  </div>
+                </div>
 
+                <button
+                  onClick={() => {
+                    addToCart(selectedProduct);
+                    setSelectedProduct(null);
+                  }}
+                  className="w-full py-4 bg-coorg-green text-misty-ivory text-xs uppercase tracking-widest font-semibold hover:bg-earth-clay transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                >
+                  <ShoppingBag className="w-4 h-4" />
+                  Add to Cart (₹{selectedProduct.price})
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
