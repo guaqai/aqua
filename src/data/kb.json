@@ -1,0 +1,55 @@
+{
+  "company": {
+    "name": "Aqua Ventures",
+    "brand": "Just Meen",
+    "location": "Guyya Village, Siddapur, Kodagu (Coorg), Karnataka - 571253",
+    "founders": "Shyam Aiyappa and Pattada Namitha",
+    "foundedYear": 2014,
+    "description": "Aqua Ventures is an innovative 10-acre integrated aqua-farm and estate agro-ecology sanctuary located along a clean Cauvery tributary in Siddapur, Coorg. We pioneer clean recirculating aquaculture (Tilapia), high-tech soilless hydroponics, scientific apiculture (bee-keeping), and artisan Kodava culinary preserves under the brands Just Meen, Just Homemade, Just Fresh, and Vinessence.",
+    "phone": "+91 81232 88564",
+    "alternatePhone": "+91 97317 84873",
+    "email": "aquaventures.coorg@gmail.com",
+    "whatsappCatalog": "https://wa.me/c/918123288564"
+  },
+  "delivery": {
+    "policy": "We operate a certified sub-zero cold-chain delivery network to guarantee zero spoilage from farm to doorstep.",
+    "zones": {
+      "Bangalore": "Next-day cold-chain dispatch (Tuesdays, Thursdays, Saturdays) via thermal insulated containers packed with dry ice gel packs. Free delivery on orders over \u20b91,500.",
+      "Mysore": "Next-day direct refrigerated delivery. Free delivery on orders over \u20b91,200.",
+      "Mangalore": "Next-day express cold-chain coastal run. Free delivery on orders over \u20b91,500.",
+      "Coorg": "Same-day or next-day direct farm dispatch across Madikeri, Virajpet, Siddapur, Gonikoppal, and Kushalnagar. Farm gate pickup also available.",
+      "RestOfIndia": "Ambient shelf-stable products (Kachampuli, Kaipuli Marmalade, Pickles, Vinessence Millet mixes, and Honey) ship pan-India via express air courier in 2-4 business days."
+    },
+    "packaging": "Frozen fish and prawns are packed in food-grade vacuum pouches, nestled in insulated thermocol coolers with sub-zero gel packs maintaining below -15\u00b0C for 36 hours."
+  },
+  "faqs": [
+    {
+      "question": "Is your Tilapia muddy or smelly like pond fish?",
+      "answer": "Absolutely not! Muddy taste in fish comes from geosmin produced by algae in stagnant pond mud. At Aqua Ventures, our Tilapia are raised in high-flow, oxygenated mountain spring water in clean concrete raceways with zero bottom silt. The result is pure, clean, sweet white meat with zero muddy odor."
+    },
+    {
+      "question": "How should I thaw and cook the Tilapia Fillets?",
+      "answer": "Thaw the vacuum-sealed pack in cold water for 15-20 minutes, or in your refrigerator overnight. Do not microwave thaw. The fillets are boneless and delicate; pan-sear in butter with garlic and lemon for 3-4 minutes per side, or gently poach in a spicy Coorg curry."
+    },
+    {
+      "question": "What is Kachampuli and how do I use it?",
+      "answer": "Kachampuli is the holy grail of Coorg cuisine! It is a pure, woodfire-reduced extract of wild Garcinia gummi-gutta fruit. It has a glossy ink-black color and an intensely fruity, complex tartness. Unlike vinegar or tamarind, you only need 3 to 5 drops at the very end of cooking pork, fish, or chicken curry to balance richness and tenderize the meat."
+    },
+    {
+      "question": "What happens on the Farm Tour?",
+      "answer": "Our 3.5-hour Integrated Farm Tour costs \u20b91,500 per adult (\u20b9800 for kids). You get a guided tour of the aquaculture raceways with hands-on fish feeding, an inspection of our climate-controlled hydroponics greenhouse, an apiary walk tasting raw honeycomb, and a lavish farm-to-table lunch featuring our fresh fish and estate-grown specialties by the Cauvery riverbank."
+    },
+    {
+      "question": "Do you sell live fish fingerlings for commercial ponds?",
+      "answer": "Yes! We supply commercial fingerlings of Catla (\u20b92.20), Rohu (\u20b92.20), Grass Carp (\u20b92.20), and Murrel (\u20b910.00) with full aquaculture advisory. For commercial enquiries over 1,000 fingerlings, our founder Shyam Aiyappa personally coordinates logistics and water quality guidance."
+    },
+    {
+      "question": "What payment modes are supported?",
+      "answer": "We support all major payment modes via Razorpay (UPI, Google Pay, PhonePe, Credit/Debit Cards, Net Banking) as well as direct WhatsApp payment links."
+    }
+  ],
+  "customNotes": [
+    "For bulk restaurant or hotel supply (10kg+ per week), contact Shyam directly or submit the B2B form for custom contracted pricing.",
+    "Farm tours require booking at least 24 hours in advance to prepare fresh riverside lunch."
+  ]
+}
