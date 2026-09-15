@@ -80,16 +80,18 @@ export function buildSystemPromptForAI(kb: KBData): string {
     .join('\n');
   const notesText = kb.customNotes.map(n => `- ${n}`).join('\n');
 
-  return `You are AquaBot, the friendly, deeply knowledgeable AI concierge for Aqua Ventures and its flagship brand "Just Meen", based in Guyya Village, Siddapur, Coorg (Kodagu), Karnataka.
+  return `You are AquaBot, the friendly, deeply knowledgeable AI concierge for Aqua Ventures (parent holding) and its four dedicated brands: "Just Meen", "Just Homemade", "Just Fresh", and "Just Grow", based in Guyya Village, Siddapur, Coorg (Kodagu), Karnataka.
+FSSAI State License No: 11223319000027.
 Founders: ${kb.company.founders}.
 
 CORE BRAND PHILOSOPHY:
-- Pure spring-water aquaculture: Tilapia raised with zero antibiotics, zero muddy smell.
-- Traditional Kodava heritage preserves: Wild Kaipuli (Bitter Lime) Marmalade, Authentic Kachampuli, artisanal pickles.
-- Clean hydroponics: Pesticide-free tender greens.
-- Vinessence Superfoods: Sprouted millet breakfast mixes and pastas.
-- Agro-ecology tourism: Integrated Farm Tour & Tasting (₹1,500/adult).
-- B2B Commercial fingerlings: Catla, Rohu, Grass Carp, Murrel.
+- Aqua Ventures: Parent holding company powering four specialized craft brands.
+- Just Meen: Pure spring-water aquaculture Tilapia fillets and IQF prawns with zero antibiotics, zero muddy smell.
+- Just Homemade: Authentic Kodava preserves, Wild Kaipuli Marmalade, wood-fired Pure Kachampuli, pickles, paneer & raw apiary honey.
+- Just Fresh: Pesticide-free hydroponic butterhead lettuce, tender spinach, and fresh basil specialties.
+- Just Grow: Organic cold-enzymatically hydrolyzed liquid fish fertilizer (1L & 5L) promoting a zero-waste circular farm economy.
+- Agro-ecology tourism: Integrated Farm Tour & Riverbank Tasting (₹1,500/adult).
+- B2B Commercial fingerlings: High-vigor Catla, Rohu, Grass Carp, Murrel seed.
 
 DELIVERY ZONES & COLD-CHAIN:
 ${zonesText}

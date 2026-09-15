@@ -40,7 +40,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
   const [tourBooking, setTourBooking] = useState<TourBookingItem | null>(null);
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const [selectedCity, setSelectedCity] = useState('Bangalore');
+  const [selectedCity, setSelectedCity] = useState('Regional Cold-Chain');
 
   // Load cart from localStorage
   useEffect(() => {
@@ -112,16 +112,14 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   // Delivery fee logic
   let deliveryFee = 0;
   if (items.length > 0) {
-    if (selectedCity === 'Bangalore') {
-      deliveryFee = productsSubtotal >= 1500 ? 0 : 150;
-    } else if (selectedCity === 'Mysore') {
-      deliveryFee = productsSubtotal >= 1200 ? 0 : 100;
-    } else if (selectedCity === 'Mangalore') {
-      deliveryFee = productsSubtotal >= 1500 ? 0 : 180;
-    } else if (selectedCity === 'Coorg') {
+    const zoneLower = selectedCity.toLowerCase();
+    if (zoneLower.includes('coorg') || zoneLower.includes('kodagu') || zoneLower.includes('local')) {
       deliveryFee = productsSubtotal >= 800 ? 0 : 60;
+    } else if (zoneLower.includes('ambient') || zoneLower.includes('pan-india')) {
+      deliveryFee = productsSubtotal >= 1200 ? 0 : 90;
     } else {
-      deliveryFee = productsSubtotal >= 2000 ? 0 : 200;
+      // Standard regional cold-chain express
+      deliveryFee = productsSubtotal >= 1500 ? 0 : 150;
     }
   }
 

@@ -1,10 +1,11 @@
 # Aqua Ventures Coorg — Complete Product Catalog & Copy Document
 
-> **Brand**: Just Meen & Aqua Ventures Coorg  
-> **Founders**: Shyam Aiyappa & Pattada Namitha  
+> **Parent Holding**: Aqua Ventures Coorg (Just Meen, Just Homemade, Just Fresh, Just Grow)  
+> **Founders**: Shyam Aiyappa, Pattada Namitha, Mukul Appaiah & Naina Ballachanda  
+> **FSSAI License**: 11223319000027  
 > **Location**: Guyya Village, Siddapur, Kodagu (Coorg), Karnataka – 571253  
 > **Direct Contact**: +91 81232 88564 | aquaventures.coorg@gmail.com  
-> **Total Products**: 30
+> **Total Curated Offerings**: 22 Products  
 
 ---
 
@@ -213,108 +214,29 @@
 - **Key Highlights**: Sweet and crunchy leaves, Zero soil pathogens, Ideal for Caesar salads and wraps
 
 
-## Vinessence Superfoods
+## Just Grow Bio-Nutrition
 
-### 21. Millet & Spinach Instant Dosa Mix
-- **Price**: ₹130 / 400g Pack
-- **Tagline**: *Nutritious breakfast ready in 10 mins; sprouted millets and real farm spinach.*
-- **Description**: A wholesome powerhouse combining stone-ground sprouted barnyard & foxtail millets with dehydrated farm-fresh spinach powder and lentil flours. Yields crispy golden dosas with low glycemic index and high dietary fiber.
-- **Packaging**: 400g Foil barrier zip-pouch
-- **Shelf Life**: 9 months
-- **Preparation**: Whisk with water & curd; pour in 10 minutes
-- **Origin**: Vinessence / Aqua Ventures Processing
-- **Key Highlights**: Diabetic-friendly low GI, Rich in iron and natural chlorophyll, No baking soda or preservatives
+### 21. Just Grow Organic Liquid Fish Fertilizer (1L)
+- **Price**: ₹400 / 1 Litre Can
+- **Tag**: `Circular Eco`
+- **Tagline**: *Cold-enzymatically hydrolyzed fish protein for explosive root vitality, foliar vigor & soil microbiome.*
+- **Description**: Produced directly at the Aqua Ventures eco-facility from 100% pure freshwater fish biomass via cold-enzymatic hydrolysis. Enriched with natural macro-nutrients (N-P-K), micronutrients, 18+ free L-amino acids, and beneficial soil trace minerals. Perfect all-purpose bio-stimulant for coffee estates, pepper vines, cardamom, indoor plants, lawns, home gardens, and orchards.
+- **Packaging**: 1 Litre HDPE Recyclable Bottle with measuring cap
+- **Shelf Life**: 24 months
+- **Preparation**: Foliar Spray: 2.5ml - 3ml per Litre water | Soil Drench: 5ml per Litre water
+- **Origin**: Aqua Ventures Circular Bio-Facility, Guyya, Coorg
+- **Key Highlights**: 100% natural bio-stimulant & plant food, Promotes prolific flowering & robust root mass, Enriches beneficial soil microbes & worm activity, Zero synthetic chemicals or heavy metals
 
-### 22. Sprouted Multi-Millet Porridge & Health Mix
-- **Price**: ₹165 / 500g Pack
-- **Tag**: `Superfood`
-- **Tagline**: *7 sprouted ancient grains; enhanced bioavailability and enzyme activation.*
-- **Description**: Slow-sprouted Ragi, Jowar, Bajra, Foxtail, Kodo, Little, and Proso millets roasted gently and milled to perfection. Sprouting unlocks micronutrients and makes digestion seamless for infants, active adults, and elders.
-- **Packaging**: 500g Resealable pouch
-- **Shelf Life**: 9 months
-- **Origin**: Vinessence Processing
-- **Key Highlights**: Sprouted for 3x nutrient absorption, Natural calcium and protein boost, Wholesome breakfast porridge or malt
-
-### 23. Millet Peanut Chocolate Spread
-- **Price**: ₹120 / 200g Jar
-- **Tagline**: *Guilt-free chocolate spread enriched with roasted millets and roasted peanuts.*
-- **Description**: Creamy slow-ground roasted peanuts blended with sprouted millet flour, dark cocoa, and unrefined jaggery. A nutrient-dense spread for toast, fruit slices, and oatmeal bowls with zero palm oil.
-- **Packaging**: 200g Glass jar
-- **Shelf Life**: 6 months
-- **Origin**: Vinessence Specialty Kitchen
-- **Key Highlights**: Zero palm oil or refined sugar, Loaded with plant protein and fiber, Kids love it on toast and rotis
-
-### 24. Millet Almond Chocolate Butter
-- **Price**: ₹150 / 200g Jar
-- **Tagline**: *Premium roasted California almonds, sprouted millets, and pure cocoa.*
-- **Description**: Velvety rich almond butter stone-ground with sprouted millet crisps, fine Dutch cocoa, and raw jaggery. Silky, nutty, and loaded with vitamin E and clean energy.
-- **Packaging**: 200g Glass jar
-- **Shelf Life**: 6 months
-- **Origin**: Vinessence Specialty Kitchen
-- **Key Highlights**: High vitamin E & healthy fats, Subtle crunchy millet texture, Clean keto-friendly treat
-
-### 25. Artisan Millet Spinach Pasta
-- **Price**: ₹180 / 200g Box
-- **Tagline**: *Gluten-conscious pasta made with sprouted millets and dehydrated farm palak.*
-- **Description**: Brass-extruded pasta made from sprouted multi-millet flour and fresh spinach puree. Holds sauce beautifully, provides firm al dente texture, and delivers substantial protein without refined wheat flour.
-- **Packaging**: 200g Eco-friendly box
-- **Shelf Life**: 12 months
-- **Preparation**: Boil in salted water 7-8 minutes
-- **Origin**: Vinessence Processing
-- **Key Highlights**: Zero maida or refined wheat, Natural green color from estate spinach, High fiber & easy digestion
-
-### 26. Traditional Millet Pasta (Multi-Millet)
-- **Price**: ₹150 / 200g Box
-- **Tagline**: *100% wholesome ancient grain pasta for clean, feel-good family dinners.*
-- **Description**: Crafted from nutrient-dense sprouted millets with no preservatives or emulsifiers. Pairs effortlessly with our fresh basil pesto or red tomato arrabbiata sauce.
-- **Packaging**: 200g Eco-friendly box
-- **Shelf Life**: 12 months
-- **Preparation**: Boil 7 minutes
-- **Origin**: Vinessence Processing
-- **Key Highlights**: Maida-free guilt-free indulgence, Low glycemic index, Rich nutty taste
-
-### 27. Sprouted Millet Pancake Mix (Beetroot)
-- **Price**: ₹150 / 300g Pouch
-- **Tagline**: *Gorgeous pink fluffy pancakes packed with natural beetroot antioxidant power.*
-- **Description**: Wholesome sprouted millet flour infused with pure dehydrated beetroot powder and mild vanilla. Mix with milk or water for radiant, pillowy-soft breakfast pancakes that kids adore.
-- **Packaging**: 300g Resealable zip-pouch
-- **Shelf Life**: 9 months
-- **Preparation**: Whisk & pan cook in 5 minutes
-- **Origin**: Vinessence Specialty Kitchen
-- **Key Highlights**: Natural vibrant color from real beets, Iron and folate rich, No refined sugar
-
-### 28. Sprouted Millet Pancake Mix (Banana)
-- **Price**: ₹150 / 300g Pouch
-- **Tagline**: *Naturally sweet banana pancake mix; wholesome goodness in every bite.*
-- **Description**: Infused with real sun-dried Coorg banana powder and stone-ground sprouted millets. Golden, fluffy pancakes without requiring added refined sugar or eggs.
-- **Packaging**: 300g Resealable zip-pouch
-- **Shelf Life**: 9 months
-- **Preparation**: Cook 2-3 mins per side on a hot skillet
-- **Origin**: Vinessence Specialty Kitchen
-- **Key Highlights**: Naturally sweetened with real banana, Fiber-rich fuel for busy mornings, Eggless & 100% vegetarian
-
-### 29. Sprouted Multi-Millet Hakka Noodles
-- **Price**: ₹150 / 200g Pack
-- **Tagline**: *Air-dried, not deep-fried; clean Asian stir-fry noodles for the whole family.*
-- **Description**: Made from whole sprouted finger, pearl, and foxtail millets. Slowly air-dried rather than fried in palm oil like commercial instant noodles. Toss with fresh hydroponic veggies for a quick, wholesome supper.
-- **Packaging**: 200g Pack with natural spice seasoning sachet
-- **Shelf Life**: 9 months
-- **Preparation**: Boil 5 mins; stir-fry 3 mins
-- **Origin**: Vinessence Specialty Kitchen
-- **Key Highlights**: Zero maida, zero deep-frying, No MSG or palm oil, Light on the stomach
-
-
-## Agri & Aquaculture
-
-### 30. Just Grow Organic Liquid Fish Fertilizer
-- **Price**: ₹400 / 1 Litre Can (Also in 5L)
-- **Tag**: `Organic Gold`
-- **Tagline**: *Cold-enzymatically hydrolyzed fish protein for explosive root and crop growth.*
-- **Description**: Produced on our farm using high-protein fish biomass digested with beneficial microbes and natural enzymes. Loaded with organic nitrogen, micronutrients, amino acids, and trace minerals. Outstanding foliar spray and drip nutrient for coffee plantations, pepper vines, vegetable gardens, and home lawns.
-- **Packaging**: 1L & 5L Heavy-duty HDPE cans
-- **Shelf Life**: 2 years
-- **Origin**: Aqua Ventures Bio-Facility, Guyya
-- **Key Highlights**: 100% natural bio-stimulant, Boosts soil microbial flora, Proven yield increases in coffee & pepper, Zero synthetic chemicals
+### 22. Just Grow Organic Liquid Fish Fertilizer (5L)
+- **Price**: ₹1,500 / 5 Litre Estate Can
+- **Tag**: `Planters Pack`
+- **Tagline**: *Commercial estate-grade cold-hydrolyzed bio-fertilizer for plantations, orchards & large farms.*
+- **Description**: Economy estate canister designed for planters, coffee growers, polyhouse operators, and large organic farms. Compatible with automated drip irrigation, power sprayers, and soil drenching regimes.
+- **Packaging**: 5 Litre Heavy-duty Canister with tamper-evident seal
+- **Shelf Life**: 24 months
+- **Preparation**: Foliar: 2.5ml - 3ml / L water | Drench: 5ml / L water (Apply every 15-20 days)
+- **Origin**: Aqua Ventures Circular Bio-Facility, Guyya, Coorg
+- **Key Highlights**: Cost-effective bulk volume for estate agriculture, Drip-irrigation compatible (filtered to prevent nozzle clogging), Dramatically improves berry setting & pepper spike filling, Certified Kodagu circular eco-production
 
 
 ## Experiences: Integrated Agro-Ecology Farm Tour & Tasting

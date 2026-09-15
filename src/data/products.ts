@@ -1,7 +1,7 @@
 export interface Product {
   id: string;
   name: string;
-  category: 'just-meen' | 'just-homemade' | 'just-fresh' | 'vinessence' | 'commercial';
+  category: 'just-meen' | 'just-homemade' | 'just-fresh' | 'just-grow' | 'commercial';
   categoryLabel: string;
   price: number;
   unit: string;
@@ -410,196 +410,52 @@ export const PRODUCTS: Product[] = [
     popular: true
   },
 
-  // VINESSENCE BASKET - Sprouted Millets & Superfoods
+
+
+
+
+
+
+  // JUST GROW - Organic Liquid Fish Fertilizer (Zero-Waste Circular Bio-Nutrients)
   {
-    id: 'millet-spinach-dosa-mix',
-    name: 'Millet & Spinach Instant Dosa Mix',
-    category: 'vinessence',
-    categoryLabel: 'Vinessence Superfoods',
-    price: 130,
-    unit: '400g Pack',
-    image: '/products/millet-spinach-dosa-mix.png',
-    tagline: 'Nutritious breakfast ready in 10 mins; sprouted millets and real farm spinach.',
-    description: 'A wholesome powerhouse combining stone-ground sprouted barnyard & foxtail millets with dehydrated farm-fresh spinach powder and lentil flours. Yields crispy golden dosas with low glycemic index and high dietary fiber.',
+    id: 'just-grow-fertilizer-1l',
+    name: 'Just Grow Organic Liquid Fish Fertilizer (1L)',
+    category: 'just-grow',
+    categoryLabel: 'Just Grow Bio-Nutrition',
+    price: 400,
+    unit: '1 Litre Can',
+    badge: 'Circular Eco',
+    image: '/products/just-grow-liquid-fish-fertilizer.png',
+    tagline: 'Cold-enzymatically hydrolyzed fish protein for explosive root vitality, foliar vigor & soil microbiome.',
+    description: 'Produced directly at the Aqua Ventures eco-facility from 100% pure freshwater fish biomass via cold-enzymatic hydrolysis. Enriched with natural macro-nutrients (N-P-K), micronutrients, 18+ free L-amino acids, and beneficial soil trace minerals. Perfect all-purpose bio-stimulant for coffee estates, pepper vines, cardamom, indoor plants, lawns, home gardens, and orchards.',
     specs: {
-      packaging: '400g Foil barrier zip-pouch',
-      shelfLife: '9 months',
-      prepTime: 'Whisk with water & curd; pour in 10 minutes',
-      origin: 'Vinessence / Aqua Ventures Processing'
+      packaging: '1 Litre HDPE Recyclable Bottle with measuring cap',
+      shelfLife: '24 months',
+      prepTime: 'Foliar Spray: 2.5ml - 3ml per Litre water | Soil Drench: 5ml per Litre water',
+      origin: 'Aqua Ventures Circular Bio-Facility, Guyya, Coorg'
     },
-    highlights: ['Diabetic-friendly low GI', 'Rich in iron and natural chlorophyll', 'No baking soda or preservatives'],
-    inStock: true
-  },
-  {
-    id: 'sprouted-multi-millet-mix',
-    name: 'Sprouted Multi-Millet Porridge & Health Mix',
-    category: 'vinessence',
-    categoryLabel: 'Vinessence Superfoods',
-    price: 165,
-    unit: '500g Pack',
-    badge: 'Superfood',
-    image: '/products/sprouted-multi-millet-mix.png',
-    tagline: '7 sprouted ancient grains; enhanced bioavailability and enzyme activation.',
-    description: 'Slow-sprouted Ragi, Jowar, Bajra, Foxtail, Kodo, Little, and Proso millets roasted gently and milled to perfection. Sprouting unlocks micronutrients and makes digestion seamless for infants, active adults, and elders.',
-    specs: {
-      packaging: '500g Resealable pouch',
-      shelfLife: '9 months',
-      origin: 'Vinessence Processing'
-    },
-    highlights: ['Sprouted for 3x nutrient absorption', 'Natural calcium and protein boost', 'Wholesome breakfast porridge or malt'],
+    highlights: ['100% natural bio-stimulant & plant food', 'Promotes prolific flowering & robust root mass', 'Enriches beneficial soil microbes & worm activity', 'Zero synthetic chemicals or heavy metals'],
     inStock: true,
     popular: true
   },
   {
-    id: 'millet-peanut-spread-chocolate',
-    name: 'Millet Peanut Chocolate Spread',
-    category: 'vinessence',
-    categoryLabel: 'Vinessence Superfoods',
-    price: 120,
-    unit: '200g Jar',
-    image: '/products/millet-peanut-spread-chocolate.png',
-    tagline: 'Guilt-free chocolate spread enriched with roasted millets and roasted peanuts.',
-    description: 'Creamy slow-ground roasted peanuts blended with sprouted millet flour, dark cocoa, and unrefined jaggery. A nutrient-dense spread for toast, fruit slices, and oatmeal bowls with zero palm oil.',
-    specs: {
-      packaging: '200g Glass jar',
-      shelfLife: '6 months',
-      origin: 'Vinessence Specialty Kitchen'
-    },
-    highlights: ['Zero palm oil or refined sugar', 'Loaded with plant protein and fiber', 'Kids love it on toast and rotis'],
-    inStock: true
-  },
-  {
-    id: 'millet-almond-spread-chocolate',
-    name: 'Millet Almond Chocolate Butter',
-    category: 'vinessence',
-    categoryLabel: 'Vinessence Superfoods',
-    price: 150,
-    unit: '200g Jar',
-    image: '/products/millet-almond-spread-chocolate.png',
-    tagline: 'Premium roasted California almonds, sprouted millets, and pure cocoa.',
-    description: 'Velvety rich almond butter stone-ground with sprouted millet crisps, fine Dutch cocoa, and raw jaggery. Silky, nutty, and loaded with vitamin E and clean energy.',
-    specs: {
-      packaging: '200g Glass jar',
-      shelfLife: '6 months',
-      origin: 'Vinessence Specialty Kitchen'
-    },
-    highlights: ['High vitamin E & healthy fats', 'Subtle crunchy millet texture', 'Clean keto-friendly treat'],
-    inStock: true
-  },
-  {
-    id: 'millet-spinach-pasta',
-    name: 'Artisan Millet Spinach Pasta',
-    category: 'vinessence',
-    categoryLabel: 'Vinessence Superfoods',
-    price: 180,
-    unit: '200g Box',
-    image: '/products/millet-spinach-pasta.png',
-    tagline: 'Gluten-conscious pasta made with sprouted millets and dehydrated farm palak.',
-    description: 'Brass-extruded pasta made from sprouted multi-millet flour and fresh spinach puree. Holds sauce beautifully, provides firm al dente texture, and delivers substantial protein without refined wheat flour.',
-    specs: {
-      packaging: '200g Eco-friendly box',
-      shelfLife: '12 months',
-      prepTime: 'Boil in salted water 7-8 minutes',
-      origin: 'Vinessence Processing'
-    },
-    highlights: ['Zero maida or refined wheat', 'Natural green color from estate spinach', 'High fiber & easy digestion'],
-    inStock: true
-  },
-  {
-    id: 'millet-pasta',
-    name: 'Traditional Millet Pasta (Multi-Millet)',
-    category: 'vinessence',
-    categoryLabel: 'Vinessence Superfoods',
-    price: 150,
-    unit: '200g Box',
-    image: '/products/millet-pasta.png',
-    tagline: '100% wholesome ancient grain pasta for clean, feel-good family dinners.',
-    description: 'Crafted from nutrient-dense sprouted millets with no preservatives or emulsifiers. Pairs effortlessly with our fresh basil pesto or red tomato arrabbiata sauce.',
-    specs: {
-      packaging: '200g Eco-friendly box',
-      shelfLife: '12 months',
-      prepTime: 'Boil 7 minutes',
-      origin: 'Vinessence Processing'
-    },
-    highlights: ['Maida-free guilt-free indulgence', 'Low glycemic index', 'Rich nutty taste'],
-    inStock: true
-  },
-  {
-    id: 'sprouted-millet-pancake-beetroot',
-    name: 'Sprouted Millet Pancake Mix (Beetroot)',
-    category: 'vinessence',
-    categoryLabel: 'Vinessence Superfoods',
-    price: 150,
-    unit: '300g Pouch',
-    image: '/products/sprouted-millet-pancake-beetroot.png',
-    tagline: 'Gorgeous pink fluffy pancakes packed with natural beetroot antioxidant power.',
-    description: 'Wholesome sprouted millet flour infused with pure dehydrated beetroot powder and mild vanilla. Mix with milk or water for radiant, pillowy-soft breakfast pancakes that kids adore.',
-    specs: {
-      packaging: '300g Resealable zip-pouch',
-      shelfLife: '9 months',
-      prepTime: 'Whisk & pan cook in 5 minutes',
-      origin: 'Vinessence Specialty Kitchen'
-    },
-    highlights: ['Natural vibrant color from real beets', 'Iron and folate rich', 'No refined sugar'],
-    inStock: true
-  },
-  {
-    id: 'sprouted-millet-pancake-banana',
-    name: 'Sprouted Millet Pancake Mix (Banana)',
-    category: 'vinessence',
-    categoryLabel: 'Vinessence Superfoods',
-    price: 150,
-    unit: '300g Pouch',
-    image: '/products/sprouted-millet-pancake-banana.png',
-    tagline: 'Naturally sweet banana pancake mix; wholesome goodness in every bite.',
-    description: 'Infused with real sun-dried Coorg banana powder and stone-ground sprouted millets. Golden, fluffy pancakes without requiring added refined sugar or eggs.',
-    specs: {
-      packaging: '300g Resealable zip-pouch',
-      shelfLife: '9 months',
-      prepTime: 'Cook 2-3 mins per side on a hot skillet',
-      origin: 'Vinessence Specialty Kitchen'
-    },
-    highlights: ['Naturally sweetened with real banana', 'Fiber-rich fuel for busy mornings', 'Eggless & 100% vegetarian'],
-    inStock: true
-  },
-  {
-    id: 'sprouted-millet-noodles',
-    name: 'Sprouted Multi-Millet Hakka Noodles',
-    category: 'vinessence',
-    categoryLabel: 'Vinessence Superfoods',
-    price: 150,
-    unit: '200g Pack',
-    image: '/products/sprouted-millet-noodles.png',
-    tagline: 'Air-dried, not deep-fried; clean Asian stir-fry noodles for the whole family.',
-    description: 'Made from whole sprouted finger, pearl, and foxtail millets. Slowly air-dried rather than fried in palm oil like commercial instant noodles. Toss with fresh hydroponic veggies for a quick, wholesome supper.',
-    specs: {
-      packaging: '200g Pack with natural spice seasoning sachet',
-      shelfLife: '9 months',
-      prepTime: 'Boil 5 mins; stir-fry 3 mins',
-      origin: 'Vinessence Specialty Kitchen'
-    },
-    highlights: ['Zero maida, zero deep-frying', 'No MSG or palm oil', 'Light on the stomach'],
-    inStock: true
-  },
-
-  // COMMERCIAL, AGRI & TOURISM
-  {
-    id: 'just-grow-fertilizer',
-    name: 'Just Grow Organic Liquid Fish Fertilizer',
-    category: 'commercial',
-    categoryLabel: 'Agri & Aquaculture',
-    price: 400,
-    unit: '1 Litre Can (Also in 5L)',
-    badge: 'Organic Gold',
+    id: 'just-grow-fertilizer-5l',
+    name: 'Just Grow Organic Liquid Fish Fertilizer (5L)',
+    category: 'just-grow',
+    categoryLabel: 'Just Grow Bio-Nutrition',
+    price: 1500,
+    unit: '5 Litre Estate Can',
+    badge: 'Planters Pack',
     image: '/products/just-grow-liquid-fish-fertilizer.png',
-    tagline: 'Cold-enzymatically hydrolyzed fish protein for explosive root and crop growth.',
-    description: 'Produced on our farm using high-protein fish biomass digested with beneficial microbes and natural enzymes. Loaded with organic nitrogen, micronutrients, amino acids, and trace minerals. Outstanding foliar spray and drip nutrient for coffee plantations, pepper vines, vegetable gardens, and home lawns.',
+    tagline: 'Commercial estate-grade cold-hydrolyzed bio-fertilizer for plantations, orchards & large farms.',
+    description: 'Economy estate canister designed for planters, coffee growers, polyhouse operators, and large organic farms. Compatible with automated drip irrigation, power sprayers, and soil drenching regimes.',
     specs: {
-      packaging: '1L & 5L Heavy-duty HDPE cans',
-      shelfLife: '2 years',
-      origin: 'Aqua Ventures Bio-Facility, Guyya'
+      packaging: '5 Litre Heavy-duty Canister with tamper-evident seal',
+      shelfLife: '24 months',
+      prepTime: 'Foliar: 2.5ml - 3ml / L water | Drench: 5ml / L water (Apply every 15-20 days)',
+      origin: 'Aqua Ventures Circular Bio-Facility, Guyya, Coorg'
     },
-    highlights: ['100% natural bio-stimulant', 'Boosts soil microbial flora', 'Proven yield increases in coffee & pepper', 'Zero synthetic chemicals'],
+    highlights: ['Cost-effective bulk volume for estate agriculture', 'Drip-irrigation compatible (filtered to prevent nozzle clogging)', 'Dramatically improves berry setting & pepper spike filling', 'Certified Kodagu circular eco-production'],
     inStock: true,
     popular: true
   }
@@ -626,7 +482,7 @@ export const FARM_TOUR: TourPackage = {
   duration: '3.5 Hours',
   timings: 'Morning Slot: 10:00 AM - 1:30 PM | Evening Slot: 3:00 PM - 6:30 PM',
   tagline: 'A sensorial journey into circular aquaculture, hydroponics, apiaries, and farm-to-fork dining.',
-  description: 'Step into the tranquil 10-acre riverside sanctuary of Aqua Ventures in Guyya Village, Siddapur. Co-founders Shyam Aiyappa and Pattada Namitha take you behind the scenes of India\'s leading integrated farm model. Feed massive schools of jumping Tilapia, harvest crisp hydroponic greens, inspect buzzing honeybee hives, and cap off your journey with a lavish, freshly cooked farm lunch right by the river.',
+  description: 'Step into the tranquil 10-acre riverside sanctuary of Aqua Ventures in Guyya Village, Siddapur. The founding team — Shyam Aiyappa, Pattada Namitha, Mukul Appaiah, and Naina Ballachanda — take you behind the scenes of India\'s leading integrated farm model. Feed massive schools of jumping Tilapia, harvest crisp hydroponic greens, inspect buzzing honeybee hives, and cap off your journey with a lavish, freshly cooked farm lunch right by the river.',
   highlights: [
     'Hands-on Aquaculture: Tour bio-secure fish raceways and feed feeding schools',
     'Soilless Hydroponics: Masterclass on automated nutrient film and CEA greens',
@@ -673,27 +529,27 @@ export const B2B_FINGERLINGS = [
 
 export const DELIVERY_ZONES = [
   {
-    city: 'Bangalore',
-    leadTime: 'Next-Day Express (Tues, Thurs, Sat)',
-    type: 'Sub-Zero Cold Chain (Insulated Thermocol & Dry Ice)',
-    freeAbove: '₹1,500'
-  },
-  {
-    city: 'Mysore',
-    leadTime: 'Next-Day Morning Delivery',
-    type: 'Direct Farm-to-Door Refrigerated Van',
-    freeAbove: '₹1,200'
-  },
-  {
-    city: 'Mangalore',
-    leadTime: 'Next-Day Express Coastal Run',
-    type: 'Sub-Zero Cold Chain Courier',
-    freeAbove: '₹1,500'
-  },
-  {
-    city: 'Coorg (Madikeri, Virajpet, Siddapur, Kushalnagar)',
+    city: 'Local Coorg / Kodagu Doorstep',
     leadTime: 'Same-Day / Next-Day Farm Dispatch',
-    type: 'Direct Farm Courier / Pickup Available',
+    type: 'Direct Farm Courier / Estate Doorstep & Farm Pickup Available',
     freeAbove: '₹800'
+  },
+  {
+    city: 'Regional Next-Day Express',
+    leadTime: 'Guaranteed Next-Day Morning Delivery',
+    type: 'Sub-Zero Insulated Cold-Chain with Dry Ice / Temperature Monitoring',
+    freeAbove: '₹1,500'
+  },
+  {
+    city: 'Direct Farm-to-Kitchen Wholesale Route',
+    leadTime: 'Scheduled Bulk Reefer Logistics',
+    type: 'Temperature-Controlled Reefer Vehicles for Hospitality & Retail Partners',
+    freeAbove: '₹3,000'
+  },
+  {
+    city: 'Pan-India Ambient Shipping',
+    leadTime: '2 - 4 Business Days Air/Surface Cargo',
+    type: 'Eco-Protective Courier Dispatch for Just Homemade & Just Grow lines',
+    freeAbove: '₹1,200'
   }
 ];

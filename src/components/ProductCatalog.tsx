@@ -12,17 +12,18 @@ export default function ProductCatalog() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
   const categories = [
-    { id: 'all', label: 'All Offerings' },
-    { id: 'just-meen', label: 'Just Meen Seafood' },
-    { id: 'just-homemade', label: 'Preserves & Pantry' },
-    { id: 'just-fresh', label: 'Hydroponics' },
-    { id: 'vinessence', label: 'Vinessence' },
-    { id: 'commercial', label: 'Agri & Aquaculture' },
+    { id: 'all', label: 'All Brands', logo: null, sub: 'Curated D2C' },
+    { id: 'just-meen', label: 'Just Meen', logo: '/just-meen_logo.png', sub: 'Seafood & Aquaculture' },
+    { id: 'just-homemade', label: 'Just Homemade', logo: '/just-homemade-logo.png', sub: 'Artisan Preserves' },
+    { id: 'just-fresh', label: 'Just Fresh', logo: '/just-fresh-logo.png', sub: 'Hydroponic Greens' },
+    { id: 'just-grow', label: 'Just Grow', logo: '/just-grow-logo.png', sub: 'Circular Bio-Fertilizer' },
   ];
 
   const filtered = activeTab === 'all'
     ? PRODUCTS
     : PRODUCTS.filter(p => p.category === activeTab);
+
+  const activeCategoryObj = categories.find(c => c.id === activeTab);
 
   return (
     <section id="catalog" className="py-24 bg-misty-ivory">
@@ -31,34 +32,60 @@ export default function ProductCatalog() {
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-16">
           <span className="text-earth-clay tracking-[0.2em] uppercase text-[10px] font-semibold mb-4 block">
-            From Our Estate to Your Table
+            Consumer D2C Showcase · Aqua Ventures Umbrella
           </span>
           <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-coorg-green mb-6 leading-tight">
-            The Artisan Catalog
+            Our Artisan Brands
           </h2>
           <div className="w-16 h-[1px] bg-warm-gold mb-6"></div>
           <p className="text-ink-charcoal/80 max-w-2xl text-lg font-light leading-relaxed">
-            Harvested clean from spring-fed waters and handcrafted in small batches. 
-            Zero chemicals, zero compromise on authentic Kodava taste.
+            Aqua Ventures is the parent holding company powering four dedicated craft brands:
+            from pristine spring-water aquaculture to zero-waste plant bio-nutrition.
           </p>
         </div>
 
-        {/* Tab Navigation */}
-        <div className="flex flex-wrap items-center justify-center gap-6 mb-16">
+        {/* Brand Tab Navigation */}
+        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-14">
           {categories.map(cat => (
             <button
               key={cat.id}
               onClick={() => setActiveTab(cat.id)}
-              className={`text-xs tracking-widest uppercase font-semibold transition-all duration-300 pb-1 border-b-2 ${
+              className={`flex items-center gap-2 px-4 py-2.5 rounded-sm border text-xs tracking-wider uppercase font-semibold transition-all duration-200 cursor-pointer ${
                 activeTab === cat.id
-                  ? 'border-earth-clay text-earth-clay'
-                  : 'border-transparent text-ink-charcoal/50 hover:text-ink-charcoal'
+                  ? 'bg-coorg-green text-misty-ivory border-coorg-green shadow-md'
+                  : 'bg-white/80 text-ink-charcoal/70 border-ink-charcoal/15 hover:border-earth-clay hover:text-earth-clay'
               }`}
             >
-              {cat.label}
+              {cat.logo && (
+                <img 
+                  src={cat.logo} 
+                  alt={cat.label} 
+                  className="w-5 h-5 object-contain rounded-full bg-white p-0.5 shadow-xs" 
+                />
+              )}
+              <span>{cat.label}</span>
             </button>
           ))}
         </div>
+
+        {/* Brand Spotlight Banner */}
+        {activeCategoryObj && activeCategoryObj.logo && (
+          <div className="mb-12 p-5 bg-white border border-ink-charcoal/10 rounded-sm flex flex-col sm:flex-row items-center gap-5 max-w-3xl mx-auto shadow-xs">
+            <img 
+              src={activeCategoryObj.logo} 
+              alt={activeCategoryObj.label} 
+              className="w-14 h-14 object-contain rounded-full bg-misty-ivory p-1.5 border border-warm-gold/40 flex-shrink-0" 
+            />
+            <div className="text-center sm:text-left">
+              <span className="text-[10px] uppercase tracking-widest font-semibold text-earth-clay block mb-0.5">
+                {activeCategoryObj.sub} · Dedicated D2C Brand
+              </span>
+              <h3 className="font-serif text-2xl text-coorg-green">
+                {activeCategoryObj.label}
+              </h3>
+            </div>
+          </div>
+        )}
 
         {/* Editorial Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-16 gap-x-12">

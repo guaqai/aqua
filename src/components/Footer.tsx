@@ -14,34 +14,36 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-4 space-y-5">
             <div>
-              <span className="font-serif text-3xl text-misty-ivory font-semibold block tracking-wide">
-                Aqua Ventures
-              </span>
-              <span className="text-[10px] uppercase tracking-[0.25em] text-warm-gold font-medium mt-1 block">
-                Just Meen · Est. 2014
+              <div className="flex items-center gap-3 mb-2">
+                <img src="/aqua_logo.png" alt="Aqua Ventures" className="w-8 h-8 rounded-full bg-misty-ivory p-0.5" />
+                <span className="font-serif text-2xl text-misty-ivory font-semibold block tracking-wide">
+                  Aqua Ventures
+                </span>
+              </div>
+              <span className="text-[10px] uppercase tracking-[0.2em] text-warm-gold font-medium block">
+                Parent Company · Guyya, Siddapur, Coorg
               </span>
             </div>
 
             <p className="text-xs text-misty-ivory/75 font-light leading-relaxed max-w-sm">
-              Integrated spring-water aquaculture, recirculating raceways, hydroponics, and traditional Kodava artisan preserves in Siddapur, Coorg. Founded by Shyam Aiyappa and Pattada Namitha.
+              Closed-loop recirculating aquaculture, hydroponics, and Kodagu artisan preserves. Founded by Shyam Aiyappa, Pattada Namitha, Mukul Appaiah, and Naina Ballachanda.
             </p>
 
-            <div className="text-[11px] text-misty-ivory/60 space-y-1 font-light pt-2">
-              <div>FSSAI Registered · Eco-Agro Sustainable Sanctuary</div>
-              <div>Sub-zero refrigerated runs to Bangalore, Mysore, Mangalore & Coorg</div>
+            <div className="text-[11px] text-misty-ivory/60 space-y-1 font-light pt-1">
+              <div>FSSAI Lic. No. 11223319000027 · Zero-Waste Circular Eco-Sanctuary</div>
+              <div>Sub-zero cold-chain express & nationwide ambient dispatch</div>
             </div>
           </div>
 
-          {/* Catalog Quicklinks */}
+          {/* Dedicated Brands & Quicklinks */}
           <div className="lg:col-span-3 space-y-4">
-            <h4 className="text-xs uppercase tracking-widest font-semibold text-warm-gold">Offerings</h4>
+            <h4 className="text-xs uppercase tracking-widest font-semibold text-warm-gold">Our D2C Brands</h4>
             <ul className="space-y-2.5 text-xs font-light">
-              <li><a href="#catalog" className="hover:text-warm-gold transition-colors">Spring-Water Tilapia Fillets</a></li>
-              <li><a href="#catalog" className="hover:text-warm-gold transition-colors">Cleaned & Deveined Prawns</a></li>
-              <li><a href="#catalog" className="hover:text-warm-gold transition-colors">Wild Kaipuli Marmalade</a></li>
-              <li><a href="#catalog" className="hover:text-warm-gold transition-colors">Wood-Fired Pure Kachampuli</a></li>
-              <li><a href="#catalog" className="hover:text-warm-gold transition-colors">Handcrafted Fish Momos & Tikka</a></li>
-              <li><a href="#catalog" className="hover:text-warm-gold transition-colors">Vinessence Sprouted Millets</a></li>
+              <li><a href="#catalog" className="hover:text-warm-gold transition-colors"><strong>Just Meen:</strong> Tilapia Fillets & Prawns</a></li>
+              <li><a href="#catalog" className="hover:text-warm-gold transition-colors"><strong>Just Homemade:</strong> Kachampuli & Preserves</a></li>
+              <li><a href="#catalog" className="hover:text-warm-gold transition-colors"><strong>Just Fresh:</strong> Hydroponic Greens & Pesto</a></li>
+              <li><a href="#catalog" className="hover:text-warm-gold transition-colors"><strong>Just Grow:</strong> Liquid Fish Fertilizer</a></li>
+              <li><a href="#cold-chain" className="hover:text-warm-gold transition-colors">Sub-Zero Certified Logistics</a></li>
             </ul>
           </div>
 

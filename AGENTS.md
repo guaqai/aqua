@@ -1,9 +1,11 @@
 # AGENTS.md — Developer & AI Agent Operating Instructions
 
 > **Repository**: `guaqai/aqua`  
-> **Client**: Aqua Ventures Coorg (`Just Meen`)  
-> **Founders**: Shyam Aiyappa & Pattada Namitha  
-> **Target Audience**: Discerning consumers and hospitality/resort partners in Bangalore, Mysore, Mangalore, and Coorg.
+> **Parent Holding**: Aqua Ventures Coorg  
+> **Consumer Brands**: `Just Meen` (Fisheries), `Just Homemade` (Preserves), `Just Fresh` (Hydroponics), `Just Grow` (Bio-Fertilizer)  
+> **Founders**: Shyam Aiyappa, Pattada Namitha, Mukul Appaiah & Naina Ballachanda  
+> **FSSAI License**: `11223319000027`  
+> **Target Audience**: Discerning consumers, home chefs, plantations, and hospitality/resort partners across South India and nationwide.
 
 ---
 
@@ -31,9 +33,9 @@
 ### A. Product Catalog & Data Layer
 - Source of truth: `src/data/products.ts`.
 - Exports:
-  - `PRODUCTS`: 30 curated products with categories, pricing, unit, description, specs, and origin.
+  - `PRODUCTS`: Curated products across 4 D2C brands: Just Meen, Just Homemade, Just Fresh, and Just Grow.
   - `FARM_TOUR`: Pricing, timing slots, schedule, and highlights.
-  - `DELIVERY_ZONES`: City delivery lead times and free shipping thresholds.
+  - `DELIVERY_ZONES`: Regional delivery tiers and free shipping thresholds.
 - When adding or modifying SKUs, always regenerate `docs/catalog-descriptions.txt` and `docs/catalog-descriptions.md` using `scripts/generate-doc.js`.
 
 ### B. Cart & Tour Booking State
@@ -43,10 +45,9 @@
   - Physical product items with quantity modifiers.
   - Agro-tourism experience booking (date, slot, adult/child counts).
 - Calculates tiered delivery fees:
-  - Bangalore: Free above ₹1,500 (else ₹150).
-  - Mysore: Free above ₹1,200 (else ₹100).
-  - Mangalore: Free above ₹1,500 (else ₹180).
-  - Coorg (Local): Free above ₹800 (else ₹60).
+  - Local Coorg / Kodagu Doorstep: Free above ₹800 (else ₹60).
+  - Regional Cold-Chain Express: Free above ₹1,500 (else ₹150).
+  - Pan-India Ambient Dispatch: Free above ₹1,200 (else ₹90).
 
 ### C. Checkout & Payment Flow (Razorpay)
 - Route: `src/app/api/checkout/route.ts`.

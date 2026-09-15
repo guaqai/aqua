@@ -1,34 +1,35 @@
 # Aqua Ventures Coorg — E-Commerce, Concierge & Digital Transformation
 
-> **Pristine Mountain Spring Water Aquaculture, Kodava Heritage Preserves & Agro-Tourism Sanctuary**  
+> **Pristine Mountain Spring Water Aquaculture, Kodava Preserves & Circular Agro-Ecology Sanctuary**  
 > Guyya Village, Siddapur, Kodagu (Coorg), Karnataka – 571253  
-> Founders: Shyam Aiyappa & Pattada Namitha  
-> Brands: **Just Meen**, **Just Homemade**, **Just Fresh**, **Vinessence**
+> Founding Team: Shyam Aiyappa, Pattada Namitha, Mukul Appaiah & Naina Ballachanda  
+> FSSAI License: `11223319000027`  
+> Dedicated D2C Brands: **Just Meen**, **Just Homemade**, **Just Fresh**, **Just Grow**
 
 ---
 
 ## Overview
 
-This repository powers the digital presence, artisanal catalog, automated cold-chain logistics, agro-tourism bookings, and AI concierge for **Aqua Ventures Coorg**.
+This repository powers the digital presence, artisanal catalog, automated cold-chain logistics, agro-tourism bookings, and AI concierge for **Aqua Ventures Coorg** (parent holding company).
 
-The system replaces manual lead qualification and order taking with an automated, high-conversion web platform designed around an editorial **"Coorg Heritage & Modern Purity"** aesthetic tailored for premium consumers and hospitality partners across Bangalore, Mysore, Mangalore, and Coorg.
+The system replaces manual lead qualification and order taking with an automated, high-conversion web platform designed around an editorial **"Coorg Heritage & Modern Purity"** aesthetic tailored for premium consumers, home chefs, and hospitality partners across South India and nationwide.
 
 ---
 
 ## Key Capabilities
 
-1. **Artisanal Product Catalog**:
-   - 30 curated products across 5 distinct categories:
+1. **Artisanal D2C Product Catalog**:
+   - Curated products across 4 dedicated consumer brands:
      - **Just Meen Seafood**: Spring-water raceway Tilapia boneless fillets, colossal 16/20 IQF prawns, handcrafted fish momos, marinated fish tikka, fish fingers, and Kaimeen pickle.
-     - **Just Homemade Preserves**: Wild Kaipuli (bitter orange) marmalade, authentic wood-fired dark Kachampuli vinegar, pickles, estate passion fruit squash, and unpasteurized raw forest honey.
-     - **Just Fresh Hydroponics**: Automated nutrient-film soilless butterhead & romaine lettuces, crisp palak.
-     - **Vinessence Superfoods**: Sprouted moringa/beetroot/spinach millet pastas and instant breakfast mixes.
-     - **Commercial Aquaculture**: High-vigor Tilapia fingerlings / seed for South Indian fish farmers.
+     - **Just Homemade Preserves**: Wild Kaipuli (bitter orange) marmalade, authentic wood-fired dark Kachampuli vinegar, pickles, estate passion fruit squash, artisan malai paneer, and unpasteurized raw forest honey.
+     - **Just Fresh Hydroponics**: Automated nutrient-film soilless butterhead & romaine lettuces, crisp palak, and fresh Genovese basil pesto.
+     - **Just Grow Bio-Nutrition**: Organic cold-enzymatically hydrolyzed liquid fish fertilizer (1L and 5L estate cans) for zero-waste circular plant nutrition.
+     - **Commercial Aquaculture**: High-vigor fingerlings (Catla, Rohu, Grass Carp, Murrel) for aquaculture farmers.
    - Complete product specs, cooking directions, shelf-life, and packaging details for every SKU.
 
 2. **Certified Cold-Chain Delivery Engine**:
    - Sub-zero insulated packaging (thermocol coolers + food-grade dry ice packs at -18°C).
-   - Real-time city fee & threshold calculations (Bangalore, Mysore, Mangalore, Coorg).
+   - Flexible regional logistics tiers (Local Kodagu doorstep, Regional Express Cold-Chain, Wholesale Hospitality Reefer, and Pan-India Ambient).
    - Pan-India express courier routing for shelf-stable preserves and honey.
 
 3. **Agro-Ecology Farm Tour & Tasting Reservation**:

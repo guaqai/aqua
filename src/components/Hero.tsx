@@ -26,11 +26,15 @@ export default function Hero() {
             transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-7 space-y-8"
           >
-            <div className="inline-flex items-center gap-3">
-              <span className="h-[1px] w-10 bg-warm-gold" />
-              <span className="text-warm-gold font-medium tracking-[0.25em] uppercase text-xs">
-                Siddapur, Kodagu · Est. 2014
-              </span>
+            <div className="flex flex-wrap items-center gap-3">
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-warm-gold/15 border border-warm-gold/30 rounded-full text-warm-gold text-[10px] uppercase tracking-widest font-semibold">
+                <ShieldCheck className="w-3.5 h-3.5 text-warm-gold" />
+                <span>FSSAI Lic. No. 11223319000027</span>
+              </div>
+              <div className="inline-flex items-center gap-2 text-misty-ivory/60 text-[10px] uppercase tracking-widest">
+                <span className="h-[1px] w-4 bg-warm-gold/50" />
+                <span>Aqua Ventures Parent Holding</span>
+              </div>
             </div>
             
             <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[5.2rem] leading-[1.08] text-misty-ivory tracking-tight">
@@ -39,14 +43,14 @@ export default function Hero() {
             </h1>
 
             <p className="text-misty-ivory/85 text-base sm:text-lg font-light leading-relaxed max-w-xl">
-              Flowing mountain spring-water Tilapia fillets, succulent prawns, wild Kaipuli citrus marmalade, and wood-fired artisanal Kachampuli. Harvested with generational Kodava stewardship.
+              Spring-water Tilapia fillets, succulent prawns, wood-fired pure Kachampuli, wild Kaipuli marmalade, hydroponic greens, and circular bio-nutrients. Four specialized craft brands cultivated with progressive Kodava agro-ecological principles.
             </p>
 
             {/* Cold chain reassurance */}
             <div className="flex items-center gap-4 py-3 px-4 rounded-sm bg-misty-ivory/10 border border-misty-ivory/15 max-w-lg backdrop-blur-md">
               <Snowflake className="w-5 h-5 text-warm-gold flex-shrink-0" />
               <div className="text-xs text-misty-ivory/90 font-light">
-                <strong className="font-medium text-warm-gold">Sub-Zero Insulated Cold Chain:</strong> Direct refrigerated runs to Bangalore, Mysore, Mangalore & Coorg.
+                <strong className="font-medium text-warm-gold">Sub-Zero Insulated Cold Chain:</strong> Direct temperature-controlled express doorstep delivery across the region.
               </div>
             </div>
 
@@ -69,16 +73,16 @@ export default function Hero() {
             {/* Trust numbers */}
             <div className="grid grid-cols-3 gap-6 pt-6 border-t border-misty-ivory/15 max-w-lg">
               <div>
-                <div className="font-serif text-2xl sm:text-3xl text-misty-ivory font-light">10+ Yrs</div>
-                <div className="text-[10px] uppercase tracking-wider text-misty-ivory/60 mt-0.5">Sustainable Heritage</div>
+                <div className="font-serif text-2xl sm:text-3xl text-misty-ivory font-light">4 Brands</div>
+                <div className="text-[10px] uppercase tracking-wider text-misty-ivory/60 mt-0.5">Under One Roof</div>
               </div>
               <div>
                 <div className="font-serif text-2xl sm:text-3xl text-warm-gold font-light">100%</div>
                 <div className="text-[10px] uppercase tracking-wider text-misty-ivory/60 mt-0.5">Antibiotic-Free</div>
               </div>
               <div>
-                <div className="font-serif text-2xl sm:text-3xl text-misty-ivory font-light">-18°C</div>
-                <div className="text-[10px] uppercase tracking-wider text-misty-ivory/60 mt-0.5">Certified Cold-Chain</div>
+                <div className="font-serif text-2xl sm:text-3xl text-misty-ivory font-light">Zero Waste</div>
+                <div className="text-[10px] uppercase tracking-wider text-misty-ivory/60 mt-0.5">Circular Bio-Cycle</div>
               </div>
             </div>
           </motion.div>
@@ -120,6 +124,11 @@ export default function Hero() {
                   >
                     View in Catalog
                   </a>
+                </div>
+
+                <div className="mt-4 pt-3 border-t border-ink-charcoal/10 flex items-center justify-between text-[10px] uppercase tracking-wider text-ink-charcoal/60">
+                  <span className="font-semibold text-coorg-green">Dedicated Brands:</span>
+                  <span>Meen · Homemade · Fresh · Grow</span>
                 </div>
               </div>
 

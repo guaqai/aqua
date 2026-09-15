@@ -8,7 +8,8 @@ let textDoc = `=================================================================
 =================================================================
 
 Estate Location: Guyya Village, Siddapur, Kodagu (Coorg), Karnataka - 571253
-Founders: Shyam Aiyappa & Pattada Namitha
+Founders: Shyam Aiyappa, Pattada Namitha, Mukul Appaiah, Naina Ballachanda
+FSSAI License: 11223319000027
 Phone / WhatsApp: +91 81232 88564 / +91 97317 84873
 Email: aquaventures.coorg@gmail.com
 Total Curated Offerings: ${PRODUCTS.length} Products + Agro-Tourism Experiences
@@ -17,11 +18,12 @@ Total Curated Offerings: ${PRODUCTS.length} Products + Agro-Tourism Experiences
 
 let mdDoc = `# Aqua Ventures Coorg — Complete Product Catalog & Copy Document
 
-> **Brand**: Just Meen & Aqua Ventures Coorg  
-> **Founders**: Shyam Aiyappa & Pattada Namitha  
+> **Parent Holding**: Aqua Ventures Coorg (Just Meen, Just Homemade, Just Fresh, Just Grow)  
+> **Founders**: Shyam Aiyappa, Pattada Namitha, Mukul Appaiah & Naina Ballachanda  
+> **FSSAI License**: 11223319000027  
 > **Location**: Guyya Village, Siddapur, Kodagu (Coorg), Karnataka – 571253  
 > **Direct Contact**: +91 81232 88564 | aquaventures.coorg@gmail.com  
-> **Total Products**: ${PRODUCTS.length}
+> **Total Curated Offerings**: ${PRODUCTS.length} Products  
 
 ---
 `;

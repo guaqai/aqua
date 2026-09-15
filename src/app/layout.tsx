@@ -26,23 +26,27 @@ export const metadata: Metadata = {
     default: 'Aqua Ventures Coorg | Just Meen Seafood, Artisan Preserves & Farm Tours',
     template: '%s | Aqua Ventures Coorg'
   },
-  description: 'Closed-loop spring-water Tilapia fillets, jumbo IQF prawns, traditional Coorg Kaipuli marmalade, wood-fired Kachampuli vinegar, and agro-tourism farm tours in Siddapur, Coorg.',
+  description: 'FSSAI-certified closed-loop spring-water Tilapia fillets, jumbo IQF prawns, traditional Coorg Kaipuli marmalade, wood-fired Kachampuli vinegar, hydroponics, and organic fish fertilizer from Siddapur, Coorg. Parent holding for Just Meen, Just Homemade, Just Fresh, and Just Grow.',
   keywords: [
     'Aqua Ventures Coorg',
-    'Just Meen',
+    'Just Meen Seafood',
+    'Just Homemade Preserves',
+    'Just Fresh Hydroponics',
+    'Just Grow Fertilizer',
+    'FSSAI 11223319000027',
     'Coorg Tilapia fish fillets',
-    'Fresh fish delivery Bangalore',
-    'Mysore fish delivery',
-    'Mangalore seafood',
+    'Sub-zero cold chain seafood delivery',
     'Authentic Coorg Kachampuli',
     'Kaipuli marmalade',
     'Coorg Farm Tour',
     'Kodagu agro tourism',
     'Commercial Tilapia fingerlings Karnataka',
     'Shyam Aiyappa',
-    'Hydroponic lettuce Coorg'
+    'Pattada Namitha',
+    'Mukul Appaiah',
+    'Naina Ballachanda'
   ],
-  authors: [{ name: 'Shyam Aiyappa & Pattada Namitha' }],
+  authors: [{ name: 'Shyam Aiyappa, Pattada Namitha, Mukul Appaiah & Naina Ballachanda' }],
   creator: 'Aqua Ventures Coorg',
   publisher: 'Aqua Ventures Coorg',
   formatDetection: {
@@ -60,7 +64,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Aqua Ventures Coorg | Pure Mountain Spring Water Harvest & Artisan Preserves',
-    description: 'Pristine flowing spring-water Tilapia fillets, colossal prawns, wild Kaipuli marmalade, and wood-fired Kachampuli delivered cold-chain to Bangalore, Mysore, Mangalore & Coorg.',
+    description: 'Pristine flowing spring-water Tilapia fillets, colossal prawns, wild Kaipuli marmalade, pure wood-fired Kachampuli, and organic fish fertilizer. FSSAI Lic. No. 11223319000027.',
     url: 'https://aquaventurescoorg.com',
     siteName: 'Aqua Ventures Coorg',
     locale: 'en_IN',
@@ -114,13 +118,15 @@ const jsonLdSchema = {
       'url': 'https://aquaventurescoorg.com',
       'logo': 'https://aquaventurescoorg.com/favicon.svg',
       'image': 'https://aquaventurescoorg.com/og-image.jpg',
-      'description': 'Closed-loop spring-water aquaculture facility, hydroponics, and traditional Kodava artisan preserves in Siddapur, Coorg.',
+      'description': 'FSSAI State License No: 11223319000027. Closed-loop spring-water aquaculture facility, hydroponics, and Kodagu artisan preserves in Siddapur, Coorg.',
       'telephone': '+918123288564',
       'email': 'aquaventures.coorg@gmail.com',
       'priceRange': '₹₹',
       'founders': [
         { '@type': 'Person', 'name': 'Shyam Aiyappa' },
-        { '@type': 'Person', 'name': 'Pattada Namitha' }
+        { '@type': 'Person', 'name': 'Pattada Namitha' },
+        { '@type': 'Person', 'name': 'Mukul Appaiah' },
+        { '@type': 'Person', 'name': 'Naina Ballachanda' }
       ],
       'address': {
         '@type': 'PostalAddress',
@@ -135,12 +141,7 @@ const jsonLdSchema = {
         'latitude': 12.3023,
         'longitude': 75.9087
       },
-      'areaServed': [
-        { '@type': 'City', 'name': 'Bangalore' },
-        { '@type': 'City', 'name': 'Mysore' },
-        { '@type': 'City', 'name': 'Mangalore' },
-        { '@type': 'AdministrativeArea', 'name': 'Kodagu' }
-      ]
+      'areaServed': ['Karnataka', 'South India', 'India']
     },
     {
       '@type': 'TouristAttraction',

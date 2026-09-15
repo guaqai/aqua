@@ -16,13 +16,16 @@ export default function AboutSection() {
               <div className="w-12 h-[2px] bg-warm-gold mb-6" />
 
               <div className="mb-6">
-                <span className="text-[10px] font-semibold text-earth-clay uppercase tracking-widest block mb-1">Co-Founders</span>
-                <h3 className="font-serif text-3xl text-coorg-green">Shyam Aiyappa & Pattada Namitha</h3>
+                <span className="text-[10px] font-semibold text-earth-clay uppercase tracking-widest block mb-1">Founding Team</span>
+                <h3 className="font-serif text-2xl text-coorg-green">
+                  Shyam Aiyappa · Pattada Namitha<br />
+                  Mukul Appaiah · Naina Ballachanda
+                </h3>
                 <p className="text-xs text-ink-charcoal/60 font-light mt-1">Guyya Village, Siddapur, Kodagu (Coorg)</p>
               </div>
 
               <blockquote className="font-serif italic text-base text-ink-charcoal/85 leading-relaxed mb-6 border-l-2 border-earth-clay/30 pl-4">
-                "We set out in 2014 to prove that India can produce world-class freshwater seafood without destroying ecosystems, muddying flavors, or pumping antibiotics. By uniting modern recirculating aquaculture with heritage Kodava culinary traditions, Aqua Ventures is cultivating a cleaner, tastier food future."
+                "Anchored in our 2022 transformation, we set out to build a modern, high-precision circular agro-ecology estate in Kodagu. By fusing closed-loop aquaculture with conscious culinary craft and zero-waste soil nutrition, Aqua Ventures delivers uncompromising purity from source to doorstep."
               </blockquote>
 
               <div className="pt-6 border-t border-ink-charcoal/10 space-y-3 text-xs text-ink-charcoal/70 font-light">
@@ -32,11 +35,11 @@ export default function AboutSection() {
                 </div>
                 <div className="flex items-center gap-2.5">
                   <CheckCircle2 className="w-4 h-4 text-coorg-green flex-shrink-0" />
-                  <span>Zero effluent pollution · 100% water recycled to orchards</span>
+                  <span>Zero-waste circular economy · Fish by-product bio-nutrients</span>
                 </div>
                 <div className="flex items-center gap-2.5">
                   <CheckCircle2 className="w-4 h-4 text-coorg-green flex-shrink-0" />
-                  <span>Empowering 50+ local Kodagu fish farmers with fingerlings</span>
+                  <span>Women-led artisan pantry & collaborative local farmer network</span>
                 </div>
               </div>
             </div>
@@ -49,36 +52,36 @@ export default function AboutSection() {
                 The Aqua Ventures Philosophy
               </span>
               <h2 className="font-serif text-4xl sm:text-5xl text-coorg-green tracking-tight leading-tight mb-4">
-                Where Mountain Water Meets Generational Kodava Craft
+                Modern Agro-Ecology Rooted in Kodagu Purity
               </h2>
               <div className="w-16 h-[1px] bg-warm-gold mb-6" />
             </div>
 
             <p className="text-base text-ink-charcoal/80 font-light leading-relaxed">
-              Nestled beside a clean mountain stream in Guyya Village, Siddapur, Aqua Ventures is not an industrial factory farm. It is a 10-acre living agro-ecology estate. Here, pure spring water cascades through concrete raceways aerated 24/7, where our Tilapia swim constantly against simulated currents. This keeps their meat firm, sweet, and exceptionally lean.
+              Nestled beside a pristine stream in Guyya Village, Siddapur, Aqua Ventures is an innovative 10-acre circular agro-ecology sanctuary. Here, clean mountain runoff cascades through high-aeration raceways where Tilapia swim against simulated currents, yielding sweet, firm white meat with zero muddy taste and zero antibiotics.
             </p>
 
             <p className="text-base text-ink-charcoal/80 font-light leading-relaxed">
-              Nutrient-rich water from the fish tanks is naturally channeled into automated hydroponic greenhouses to feed crisp butterhead lettuces and fragrant Genovese basil. Meanwhile, our heritage orchards yield wild Seville bitter limes for our famous <strong className="font-serif italic text-coorg-green font-semibold">Kaipuli Marmalade</strong> and rare forest fruits for <strong className="font-serif italic text-coorg-green font-semibold">Pure Kachampuli</strong> vinegar.
+              Every drop of water and nutrient is cherished. Water nourishes automated hydroponic greenhouses for tender lettuce and spinach, while fish by-products are cold-hydrolyzed into <strong className="font-serif italic text-coorg-green font-semibold">Just Grow</strong> organic bio-fertilizer. Our pantry lines — including wood-fired <strong className="font-serif italic text-coorg-green font-semibold">Kachampuli</strong> and wild <strong className="font-serif italic text-coorg-green font-semibold">Kaipuli Marmalade</strong> — celebrate unadulterated botanical flavor.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4">
               <div className="p-5 bg-white border border-ink-charcoal/10 rounded-sm">
                 <Leaf className="w-5 h-5 text-coorg-green mb-3" />
-                <h4 className="font-serif text-lg text-coorg-green font-semibold">Circular Farming</h4>
-                <p className="text-xs text-ink-charcoal/60 font-light mt-1 leading-relaxed">Fish waste fertilizes hydroponics and coffee plantations.</p>
+                <h4 className="font-serif text-lg text-coorg-green font-semibold">Zero-Waste Circularity</h4>
+                <p className="text-xs text-ink-charcoal/60 font-light mt-1 leading-relaxed">Fish biomass upcycled into high-potency liquid plant fertilizer.</p>
               </div>
 
               <div className="p-5 bg-white border border-ink-charcoal/10 rounded-sm">
                 <Award className="w-5 h-5 text-earth-clay mb-3" />
-                <h4 className="font-serif text-lg text-coorg-green font-semibold">Heritage Preserves</h4>
-                <p className="text-xs text-ink-charcoal/60 font-light mt-1 leading-relaxed">Authentic Kodava recipes simmered without chemical preservatives.</p>
+                <h4 className="font-serif text-lg text-coorg-green font-semibold">Women-Led Craft</h4>
+                <p className="text-xs text-ink-charcoal/60 font-light mt-1 leading-relaxed">Artisan preserves and farm delicacies made with zero artificial chemicals.</p>
               </div>
 
               <div className="p-5 bg-white border border-ink-charcoal/10 rounded-sm">
                 <Heart className="w-5 h-5 text-warm-gold mb-3" />
-                <h4 className="font-serif text-lg text-coorg-green font-semibold">Community First</h4>
-                <p className="text-xs text-ink-charcoal/60 font-light mt-1 leading-relaxed">Advising Coorg farmers and generating local rural employment.</p>
+                <h4 className="font-serif text-lg text-coorg-green font-semibold">Community Synergy</h4>
+                <p className="text-xs text-ink-charcoal/60 font-light mt-1 leading-relaxed">Empowering local partner entrepreneurs and regional fish farmers.</p>
               </div>
             </div>
 

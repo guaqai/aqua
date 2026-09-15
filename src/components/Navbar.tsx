@@ -28,17 +28,24 @@ export default function Navbar() {
         <div className="flex items-center justify-between">
           
           {/* Brand Logo */}
-          <Link href="/" className="flex flex-col group">
-            <span className={`font-serif text-2xl md:text-3xl font-semibold tracking-wide transition-colors duration-300 ${
-              scrolled ? 'text-coorg-green' : 'text-misty-ivory'
-            }`}>
-              Aqua Ventures
-            </span>
-            <span className={`text-[10px] uppercase tracking-[0.25em] font-medium mt-0.5 transition-colors duration-300 ${
-              scrolled ? 'text-earth-clay' : 'text-warm-gold'
-            }`}>
-              Siddapur, Coorg
-            </span>
+          <Link href="/" className="flex items-center gap-3 group">
+            <img 
+              src="/aqua_logo.png" 
+              alt="Aqua Ventures" 
+              className="w-10 h-10 object-contain rounded-full bg-misty-ivory p-0.5 border border-warm-gold/40 shadow-sm transition-transform duration-300 group-hover:scale-105" 
+            />
+            <div className="flex flex-col">
+              <span className={`font-serif text-2xl md:text-3xl font-semibold tracking-wide transition-colors duration-300 ${
+                scrolled ? 'text-coorg-green' : 'text-misty-ivory'
+              }`}>
+                Aqua Ventures
+              </span>
+              <span className={`text-[10px] uppercase tracking-[0.25em] font-medium mt-0.5 transition-colors duration-300 ${
+                scrolled ? 'text-earth-clay' : 'text-warm-gold'
+              }`}>
+                Siddapur, Coorg
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Nav Links */}
