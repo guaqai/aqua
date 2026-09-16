@@ -37,6 +37,8 @@ playwright-report/
 
 # Generated scripts dist
 scripts/dist/
+public/products_orig_backup/
+*.tsbuildinfo
 
 # Operating System files
 .DS_Store

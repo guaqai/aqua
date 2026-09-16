@@ -1,10 +1,15 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Save, Plus, Trash2, Database, MessageSquare, AlertCircle, CheckCircle2, Shield } from 'lucide-react';
+import { Save, Plus, Trash2, Database, MessageSquare, AlertCircle, CheckCircle2, Shield, Lock, LogOut } from 'lucide-react';
 import { KBData } from '@/lib/kb';
 
 export default function AdminPage() {
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [authError, setAuthError] = useState('');
+
   const [kb, setKb] = useState<KBData | null>(null);
   const [newQuestion, setNewQuestion] = useState('');
   const [newAnswer, setNewAnswer] = useState('');
@@ -14,11 +19,36 @@ export default function AdminPage() {
   const [leads, setLeads] = useState<any[]>([]);
 
   useEffect(() => {
+    const saved = sessionStorage.getItem('aqua_admin_auth');
+    if (saved === 'true') {
+      setIsAuthenticated(true);
+    } else {
+      setIsAuthenticated(false);
+    }
+
     fetch('/api/kb')
       .then(res => res.json())
       .then(data => setKb(data))
       .catch(err => console.error(err));
   }, []);
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (username.trim() === 'admin' && password === 'admin') {
+      sessionStorage.setItem('aqua_admin_auth', 'true');
+      setIsAuthenticated(true);
+      setAuthError('');
+    } else {
+      setAuthError('Invalid credentials. Please enter admin / admin.');
+    }
+  };
+
+  const handleLogout = () => {
+    sessionStorage.removeItem('aqua_admin_auth');
+    setIsAuthenticated(false);
+    setUsername('');
+    setPassword('');
+  };
 
   const handleSaveKB = async () => {
     if (!kb) return;
@@ -26,7 +56,10 @@ export default function AdminPage() {
     try {
       const res = await fetch('/api/kb', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'Authorization': 'Basic YWRtaW46YWRtaW4='
+        },
         body: JSON.stringify(kb)
       });
       const data = await res.json();
@@ -78,8 +111,71 @@ export default function AdminPage() {
     });
   };
 
+  if (isAuthenticated === null) {
+    return (
+      <div className="min-h-screen pt-36 pb-24 bg-[#080d0b] flex items-center justify-center">
+        <div className="w-8 h-8 border-2 border-emerald-500 border-t-transparent rounded-full animate-spin" />
+      </div>
+    );
+  }
+
+  if (isAuthenticated === false) {
+    return (
+      <div className="min-h-screen pt-36 pb-24 bg-[#080d0b] text-zinc-200 flex items-center justify-center px-4">
+        <div className="w-full max-w-md p-8 rounded-2xl bg-zinc-900 border border-zinc-800 shadow-2xl space-y-6">
+          <div className="text-center space-y-2">
+            <div className="w-12 h-12 rounded-full bg-emerald-950 border border-emerald-500/30 text-emerald-400 flex items-center justify-center mx-auto mb-3 shadow-lg shadow-emerald-950">
+              <Lock className="w-6 h-6" />
+            </div>
+            <h2 className="text-2xl font-bold text-white tracking-tight">Aqua Ventures Admin</h2>
+            <p className="text-xs text-zinc-400">Please sign in to access the Knowledge Base & Concierge portal.</p>
+          </div>
+
+          <form onSubmit={handleLogin} className="space-y-4">
+            <div>
+              <label className="block text-xs font-semibold text-zinc-400 mb-1.5">Username</label>
+              <input
+                type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                placeholder="Username (e.g. admin)"
+                className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 rounded-xl text-sm text-white focus:outline-none focus:border-emerald-500 transition-colors"
+                required
+              />
+            </div>
+            <div>
+              <label className="block text-xs font-semibold text-zinc-400 mb-1.5">Password</label>
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Password (e.g. admin)"
+                className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 rounded-xl text-sm text-white focus:outline-none focus:border-emerald-500 transition-colors"
+                required
+              />
+            </div>
+
+            {authError && (
+              <div className="p-3 rounded-lg bg-red-950/60 border border-red-500/30 text-red-300 text-xs flex items-center gap-2">
+                <AlertCircle className="w-4 h-4 flex-shrink-0" />
+                <span>{authError}</span>
+              </div>
+            )}
+
+            <button
+              type="submit"
+              className="w-full py-3 px-4 bg-emerald-500 hover:bg-emerald-400 text-black font-bold text-sm rounded-xl transition-colors cursor-pointer shadow-lg shadow-emerald-950/60"
+            >
+              Sign In
+            </button>
+          </form>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="min-h-screen py-16 bg-[#080d0b] text-zinc-200">
+    <div className="min-h-screen pt-36 pb-24 bg-[#080d0b] text-zinc-200">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         
         {/* Header */}
@@ -97,14 +193,24 @@ export default function AdminPage() {
             </p>
           </div>
 
-          <button
-            onClick={handleSaveKB}
-            disabled={loading}
-            className="px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-bold text-xs sm:text-sm flex items-center gap-2 shadow-lg shadow-emerald-950/60 transition-all cursor-pointer self-start sm:self-auto disabled:opacity-50"
-          >
-            <Save className="w-4 h-4" />
-            <span>{loading ? 'Saving...' : 'Save Knowledge Base'}</span>
-          </button>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={handleLogout}
+              className="px-4 py-2.5 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-semibold text-xs sm:text-sm flex items-center gap-2 transition-all cursor-pointer"
+            >
+              <LogOut className="w-4 h-4" />
+              <span>Log Out</span>
+            </button>
+
+            <button
+              onClick={handleSaveKB}
+              disabled={loading}
+              className="px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-bold text-xs sm:text-sm flex items-center gap-2 shadow-lg shadow-emerald-950/60 transition-all cursor-pointer disabled:opacity-50"
+            >
+              <Save className="w-4 h-4" />
+              <span>{loading ? 'Saving...' : 'Save Knowledge Base'}</span>
+            </button>
+          </div>
         </div>
 
         {saveStatus && (

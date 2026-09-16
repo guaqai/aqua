@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
 import { MapPin, Phone, Mail, MessageSquare } from 'lucide-react';
 
 export default function Footer() {
@@ -55,7 +54,6 @@ export default function Footer() {
               <li><a href="#b2b" className="hover:text-warm-gold transition-colors">Commercial Fingerlings</a></li>
               <li><a href="#b2b" className="hover:text-warm-gold transition-colors">Resort Wholesale Supply</a></li>
               <li><a href="#about" className="hover:text-warm-gold transition-colors">Our Agro-Ecology Story</a></li>
-              <li><Link href="/admin" className="text-warm-gold/80 hover:text-warm-gold transition-colors">Admin Portal</Link></li>
             </ul>
           </div>
 
@@ -100,8 +98,6 @@ export default function Footer() {
             <a href="#cold-chain" className="hover:text-warm-gold">Cold-Chain Guarantee</a>
             <span>·</span>
             <a href="#tour" className="hover:text-warm-gold">Agritourism Guidelines</a>
-            <span>·</span>
-            <Link href="/admin" className="hover:text-warm-gold">Staff Portal</Link>
           </div>
         </div>
 
