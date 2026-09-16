@@ -1,17 +1,53 @@
 'use client';
 
-import React, { useState } from 'react';
-import { X, Trash2, ArrowRight, Loader2, CheckCircle2, MessageSquare } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { X, Trash2, ArrowRight, Loader2, CheckCircle2, MessageSquare, AlertCircle, AlertTriangle } from 'lucide-react';
 import { useCart } from '@/lib/cart-context';
 
 export default function CartDrawer() {
-  const { isCartOpen, setIsCartOpen, items, updateQuantity, removeFromCart, tourBooking, setTourBookingData, grandTotal, clearCart } = useCart();
+  const { isCartOpen, setIsCartOpen, items, updateQuantity, removeFromCart, tourBooking, setTourBookingData, grandTotal, clearCart, selectedCity } = useCart();
   const [loading, setLoading] = useState(false);
-  const [completedOrder, setCompletedOrder] = useState<{ paymentId: string; orderId: string; amount: number; summary: string } | null>(null);
+  const [completedOrder, setCompletedOrder] = useState<{ paymentId: string; orderId: string; amount: number; summary: string; customerName?: string; customerPhone?: string } | null>(null);
+  
+  // Delivery & Customer Contact info
+  const [customerName, setCustomerName] = useState('');
+  const [customerPhone, setCustomerPhone] = useState('');
+  const [customerAddress, setCustomerAddress] = useState('');
+  const [paymentError, setPaymentError] = useState<string | null>(null);
+  const [paymentNotice, setPaymentNotice] = useState<string | null>(null);
+
+  // Restore last completed order from session if user refreshed or navigated back
+  useEffect(() => {
+    try {
+      const saved = sessionStorage.getItem('aqua_last_order');
+      if (saved) {
+        setCompletedOrder(JSON.parse(saved));
+      }
+    } catch (e) {
+      console.error('Failed to parse saved order:', e);
+    }
+  }, []);
 
   if (!isCartOpen) return null;
 
   const handleCheckout = async () => {
+    // 0. Validate customer details
+    if (!customerName.trim()) {
+      setPaymentError('Please enter your full name for order tracking.');
+      return;
+    }
+    const cleanPhone = customerPhone.replace(/\D/g, '');
+    if (cleanPhone.length < 10) {
+      setPaymentError('Please enter a valid 10-digit mobile number for dispatch updates.');
+      return;
+    }
+    if (items.length > 0 && !customerAddress.trim()) {
+      setPaymentError('Please enter your delivery street address and city.');
+      return;
+    }
+
+    setPaymentError(null);
+    setPaymentNotice(null);
     setLoading(true);
     const amount = grandTotal;
     const summary = tourBooking
@@ -19,14 +55,21 @@ export default function CartDrawer() {
       : `${items.map(i => `${i.quantity}x ${i.product.name}`).join(', ')}`;
 
     try {
-      // 1. Create order on server
+      // 1. Create order on server with customer metadata
       const res = await fetch('/api/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           amount: grandTotal,
+          customer: {
+            name: customerName.trim(),
+            phone: cleanPhone,
+            address: customerAddress.trim(),
+            city: selectedCity
+          },
           items,
-          tourBooking
+          tourBooking,
+          city: selectedCity
         })
       });
 
@@ -52,10 +95,13 @@ export default function CartDrawer() {
             fd.append('payment_id', response.razorpay_payment_id);
             fd.append('order_id', response.razorpay_order_id);
             fd.append('amount', `₹${amount.toLocaleString('en-IN')}`);
+            fd.append('customer_name', customerName.trim());
+            fd.append('customer_phone', cleanPhone);
+            fd.append('delivery_address', customerAddress.trim() || 'Coorg / Direct Booking');
             fd.append('order_summary', summary);
             fd.append('_captcha', 'false');
             fd.append('_template', 'table');
-            fd.append('_subject', `🚨 NEW PAID ORDER / TOUR: ₹${amount} (${response.razorpay_payment_id})`);
+            fd.append('_subject', `🚨 NEW PAID ORDER / TOUR: ₹${amount} (${response.razorpay_payment_id}) - ${customerName.trim()}`);
 
             try {
               fetch('https://formsubmit.co/ajax/aquaventures.coorg@gmail.com', {
@@ -70,28 +116,52 @@ export default function CartDrawer() {
                 body: JSON.stringify({
                   paymentId: response.razorpay_payment_id,
                   orderId: response.razorpay_order_id,
+                  signature: response.razorpay_signature,
                   amount,
+                  customer: {
+                    name: customerName.trim(),
+                    phone: cleanPhone,
+                    address: customerAddress.trim()
+                  },
                   items,
-                  tourBooking
+                  tourBooking,
+                  city: selectedCity
                 })
               });
             } catch (err) {
               console.error(err);
             }
 
-            // B. Display in-drawer completion screen
-            setCompletedOrder({
+            // B. Persist to session and display in-drawer completion screen
+            const orderReceipt = {
               paymentId: response.razorpay_payment_id,
               orderId: response.razorpay_order_id,
               amount,
-              summary
-            });
+              summary,
+              customerName: customerName.trim(),
+              customerPhone: cleanPhone
+            };
+            try {
+              sessionStorage.setItem('aqua_last_order', JSON.stringify(orderReceipt));
+            } catch (e) {}
+
+            setCompletedOrder(orderReceipt);
             clearCart();
+            setPaymentError(null);
+            setPaymentNotice(null);
           },
           prefill: {
-            name: 'Valued Customer',
+            name: customerName.trim(),
             email: 'aquaventures.coorg@gmail.com',
-            contact: '9876543210'
+            contact: cleanPhone
+          },
+          modal: {
+            ondismiss: function () {
+              setLoading(false);
+              setPaymentNotice('Payment was not completed. Your cart items are safely preserved. You can retry anytime.');
+            },
+            escape: true,
+            backdropclose: false
           },
           theme: {
             color: '#1b3b2b'
@@ -99,13 +169,18 @@ export default function CartDrawer() {
         };
 
         const rzp = new (window as any).Razorpay(options);
+        rzp.on('payment.failed', function (resp: any) {
+          setLoading(false);
+          const failureReason = resp?.error?.description || resp?.error?.reason || 'Transaction could not be processed by your bank.';
+          setPaymentError(`Payment failed: ${failureReason}. Your cart items are still saved.`);
+        });
         rzp.open();
       } else {
         window.location.href = `/api/checkout?amount=${grandTotal}`;
       }
-    } catch (err) {
+    } catch (err: any) {
       console.error('Checkout error:', err);
-      window.location.href = `/api/checkout?amount=${grandTotal}`;
+      setPaymentError(err?.message || 'Unable to initialize checkout. Please try again.');
     } finally {
       setLoading(false);
     }
@@ -118,6 +193,7 @@ export default function CartDrawer() {
         onClick={() => {
           setIsCartOpen(false);
           setCompletedOrder(null);
+          try { sessionStorage.removeItem('aqua_last_order'); } catch (e) {}
         }}
       />
       <div className="fixed inset-y-0 right-0 z-50 w-full max-w-md bg-misty-ivory shadow-2xl flex flex-col animate-in slide-in-from-right duration-300">
@@ -130,6 +206,7 @@ export default function CartDrawer() {
             onClick={() => {
               setIsCartOpen(false);
               setCompletedOrder(null);
+              try { sessionStorage.removeItem('aqua_last_order'); } catch (e) {}
             }}
             className="p-2 text-misty-ivory/60 hover:text-misty-ivory transition-colors cursor-pointer"
           >
@@ -158,7 +235,7 @@ export default function CartDrawer() {
             </div>
 
             <a
-              href={`https://wa.me/918123288564?text=${encodeURIComponent(`Namaskara Shyam! I have completed payment for my Aqua Ventures order.\nAmount: ₹${completedOrder.amount}\nRazorpay ID: ${completedOrder.paymentId}\nOrder: ${completedOrder.summary}\nPlease confirm dispatch/booking details.`)}`}
+              href={`https://wa.me/918123288564?text=${encodeURIComponent(`Namaskara Shyam! I have completed payment for my Aqua Ventures order.\nCustomer: ${completedOrder.customerName || 'Customer'} (${completedOrder.customerPhone || ''})\nAmount: ₹${completedOrder.amount}\nRazorpay ID: ${completedOrder.paymentId}\nOrder: ${completedOrder.summary}\nPlease confirm dispatch/booking details.`)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full py-4 bg-[#25D366] text-black font-bold text-xs uppercase tracking-wider rounded-sm flex items-center justify-center gap-2 hover:opacity-90 transition-opacity mb-3"
@@ -171,6 +248,7 @@ export default function CartDrawer() {
               onClick={() => {
                 setIsCartOpen(false);
                 setCompletedOrder(null);
+                try { sessionStorage.removeItem('aqua_last_order'); } catch (e) {}
               }}
               className="text-xs uppercase tracking-widest font-semibold text-ink-charcoal/60 hover:text-coorg-green transition-colors mt-2"
             >
@@ -234,6 +312,57 @@ export default function CartDrawer() {
                       </div>
                     </div>
                   )}
+
+                  {(items.length > 0 || tourBooking) && (
+                    <div className="space-y-3 pt-2">
+                      <h3 className="text-[10px] uppercase tracking-widest font-bold text-ink-charcoal/50 border-b border-ink-charcoal/10 pb-2">
+                        {tourBooking ? 'Lead Guest & Booking Details' : 'Contact & Delivery Details'}
+                      </h3>
+                      <div className="space-y-2.5 text-xs">
+                        <div>
+                          <label className="block text-[10px] uppercase tracking-wider text-ink-charcoal/60 font-semibold mb-1">Full Name *</label>
+                          <input
+                            type="text"
+                            placeholder="e.g. Ramesh Ponnappa"
+                            value={customerName}
+                            onChange={e => {
+                              setCustomerName(e.target.value);
+                              if (paymentError) setPaymentError(null);
+                            }}
+                            className="w-full bg-white border border-ink-charcoal/20 rounded-sm px-3 py-2 text-ink-charcoal placeholder:text-ink-charcoal/30 focus:outline-none focus:border-coorg-green"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-[10px] uppercase tracking-wider text-ink-charcoal/60 font-semibold mb-1">10-Digit Mobile / WhatsApp *</label>
+                          <input
+                            type="tel"
+                            placeholder="e.g. 9845012345"
+                            value={customerPhone}
+                            onChange={e => {
+                              setCustomerPhone(e.target.value);
+                              if (paymentError) setPaymentError(null);
+                            }}
+                            className="w-full bg-white border border-ink-charcoal/20 rounded-sm px-3 py-2 text-ink-charcoal placeholder:text-ink-charcoal/30 focus:outline-none focus:border-coorg-green"
+                          />
+                        </div>
+                        {items.length > 0 && (
+                          <div>
+                            <label className="block text-[10px] uppercase tracking-wider text-ink-charcoal/60 font-semibold mb-1">Street Address & City *</label>
+                            <input
+                              type="text"
+                              placeholder="e.g. #14 Plantation Road, Madikeri"
+                              value={customerAddress}
+                              onChange={e => {
+                                setCustomerAddress(e.target.value);
+                                if (paymentError) setPaymentError(null);
+                              }}
+                              className="w-full bg-white border border-ink-charcoal/20 rounded-sm px-3 py-2 text-ink-charcoal placeholder:text-ink-charcoal/30 focus:outline-none focus:border-coorg-green"
+                            />
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  )}
                 </>
               )}
             </div>
@@ -245,6 +374,20 @@ export default function CartDrawer() {
                   <span className="font-serif text-3xl text-coorg-green">₹{grandTotal.toLocaleString('en-IN')}</span>
                 </div>
                 
+                {paymentNotice && (
+                  <div className="mb-3 p-3 bg-warm-gold/15 border border-warm-gold/40 rounded-sm text-xs text-ink-charcoal flex items-start gap-2 animate-in fade-in">
+                    <AlertCircle className="w-4 h-4 text-warm-gold flex-shrink-0 mt-0.5" />
+                    <span>{paymentNotice}</span>
+                  </div>
+                )}
+
+                {paymentError && (
+                  <div className="mb-3 p-3 bg-red-50 border border-red-200 rounded-sm text-xs text-red-800 flex items-start gap-2 animate-in fade-in">
+                    <AlertTriangle className="w-4 h-4 text-red-600 flex-shrink-0 mt-0.5" />
+                    <span>{paymentError}</span>
+                  </div>
+                )}
+
                 <button
                   onClick={handleCheckout}
                   disabled={loading}

@@ -300,6 +300,10 @@ export async function POST(req: Request) {
       key_secret: KEY_SECRET
     });
 
+    const summary = tourBooking
+      ? `Farm Tour on ${tourBooking.date} (${tourBooking.slot}) for ${tourBooking.adults}A, ${tourBooking.children}K`
+      : (items || []).map((i: any) => `${i.quantity}x ${i.product?.name || 'Item'}`).join(', ').slice(0, 250);
+
     const receipt = `aqua_${Date.now()}_${Math.floor(Math.random() * 1000)}`;
     const options = {
       amount: Math.round(amount * 100), // in paise
@@ -308,7 +312,10 @@ export async function POST(req: Request) {
       notes: {
         customer_name: customer?.name || 'Customer',
         customer_phone: customer?.phone || '',
-        customer_city: city || '',
+        customer_email: customer?.email || '',
+        delivery_address: customer?.address || '',
+        customer_city: customer?.city || city || '',
+        order_summary: summary,
         has_tour: tourBooking ? 'yes' : 'no'
       }
     };
