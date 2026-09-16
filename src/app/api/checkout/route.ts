@@ -37,7 +37,7 @@ export async function GET(req: Request) {
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Aqua Ventures Coorg — Secure Checkout</title>
+  <title>Aqua Ventures Coorg - Secure Checkout</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -174,7 +174,7 @@ export async function GET(req: Request) {
 </head>
 <body>
   <div class="card" id="main-card">
-    <div class="badge">Aqua Ventures · Coorg</div>
+    <div class="badge">Aqua Ventures &middot; Coorg</div>
     <h1>Complete Checkout</h1>
     <p class="subtext">Just Meen Seafood, Artisan Preserves & Farm Tours</p>
     
@@ -184,10 +184,10 @@ export async function GET(req: Request) {
     </div>
 
     <button id="pay-btn" class="btn">Proceed to Razorpay</button>
-    <a href="/" class="back">← Return to Store</a>
+    <a href="/" class="back">&larr; Return to Store</a>
 
     <div class="test-mode">
-      ⚡ Razorpay Secure Checkout
+      Razorpay Secure Checkout
     </div>
   </div>
 
@@ -206,7 +206,7 @@ export async function GET(req: Request) {
         fd.append('amount_inr', '₹${amount.toLocaleString('en-IN')}');
         fd.append('_captcha', 'false');
         fd.append('_template', 'table');
-        fd.append('_subject', '🚨 NEW PAID ORDER / BOOKING: ₹${amount} (' + response.razorpay_payment_id + ')');
+        fd.append('_subject', 'NEW PAID ORDER / BOOKING: ₹${amount} (' + response.razorpay_payment_id + ')');
         
         try {
           fetch('https://formsubmit.co/ajax/aquaventures.coorg@gmail.com', {

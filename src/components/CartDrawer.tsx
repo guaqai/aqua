@@ -101,7 +101,7 @@ export default function CartDrawer() {
             fd.append('order_summary', summary);
             fd.append('_captcha', 'false');
             fd.append('_template', 'table');
-            fd.append('_subject', `🚨 NEW PAID ORDER / TOUR: ₹${amount} (${response.razorpay_payment_id}) - ${customerName.trim()}`);
+            fd.append('_subject', `NEW PAID ORDER / TOUR: ₹${amount} (${response.razorpay_payment_id}) - ${customerName.trim()}`);
 
             try {
               fetch('https://formsubmit.co/ajax/aquaventures.coorg@gmail.com', {

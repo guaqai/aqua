@@ -18,7 +18,7 @@ export async function POST(req: Request) {
         .digest('hex');
 
       if (generatedSignature !== signature) {
-        console.warn('⚠️ Razorpay payment signature verification failed!');
+        console.warn('Razorpay payment signature verification failed!');
         return NextResponse.json({ error: 'Signature verification failed' }, { status: 400 });
       }
       signatureValid = true;
